@@ -2,7 +2,7 @@
 
 Run a full AI model inside your app, on-device.
 
-> **Status: scaffold.** The API, types, validation and test harness are real. The inference runtime is not built yet, so `zeroth.load()` rejects with `ENGINE_UNAVAILABLE` unless an engine is registered.
+> The core API, types, validation and `Engine` interface. On its own it has no runtime: `zeroth.load()` rejects with `ENGINE_UNAVAILABLE` until an engine is registered. Use [`@zeroth/sdk-node`](../sdk-node/README.md) for a working Node/Electron runtime.
 
 ## API
 
@@ -58,9 +58,10 @@ npm run test  -w @zeroth/sdk
 
 ## Roadmap
 
-- [ ] First real engine (pick a target: WebGPU or llama.cpp bindings)
-- [ ] Hardware probe and model selection in `resolve()`
-- [ ] Resumable, checksum-verified model downloads
-- [ ] Tool calling loop (the `tools()` registry is stored but not yet driven)
+- [x] First real engine: llama.cpp for Node (`@zeroth/sdk-node`)
+- [x] Hardware probe and model selection
+- [x] Resumable, checksum-verified model downloads
+- [x] Tool calling (driven by the engine)
+- [ ] In-browser engine (WebGPU)
 - [ ] Platform packages: Swift, Kotlin
 - [ ] Remove `"private": true` and publish

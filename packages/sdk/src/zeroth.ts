@@ -1,4 +1,5 @@
 import type { Engine, LoadedModel } from "./engine.js";
+import type { EngineGenerateOptions } from "./engine.js";
 import { ZerothError } from "./errors.js";
 import type {
   GenerateOptions,
@@ -35,12 +36,22 @@ class Instance implements Zeroth {
     return this.#loaded;
   }
 
-  async *chat(input: Input, options: GenerateOptions = {}): AsyncIterable<string> {
+  async *#stream(
+    messages: Message[],
+    options: GenerateOptions,
+    extra: Pick<EngineGenerateOptions, "jsonSchema">,
+  ): AsyncIterable<string> {
     const model = this.#model();
-    for await (const token of model.generate(toMessages(input), { ...options, tools: this.#tools })) {
-      if (options.signal?.aborted) throw new ZerothError("ABORTED", "Generation was aborted.");
+    const opts: EngineGenerateOptions = { ...options, ...extra, tools: this.#tools };
+    for await (const token of model.generate(messages, opts)) {
+      if (options.signal?.aborted) break;
       yield token;
     }
+    if (options.signal?.aborted) throw new ZerothError("ABORTED", "Generation was aborted.");
+  }
+
+  chat(input: Input, options: GenerateOptions = {}): AsyncIterable<string> {
+    return this.#stream(toMessages(input), options, {});
   }
 
   async complete(input: Input, options?: GenerateOptions): Promise<string> {
@@ -55,7 +66,10 @@ class Instance implements Zeroth {
       role: "system",
       content: `Reply with only JSON that matches this schema: ${JSON.stringify(schema)}`,
     };
-    const text = await this.complete([instruction, ...messages], options);
+    let text = "";
+    for await (const token of this.#stream([instruction, ...messages], options ?? {}, { jsonSchema: schema })) {
+      text += token;
+    }
 
     let value: unknown;
     try {

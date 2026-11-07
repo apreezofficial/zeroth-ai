@@ -91,3 +91,41 @@ describe("unload", () => {
     await assert.rejects(ai.embed(["hi"]), { code: "NOT_LOADED" });
   });
 });
+
+describe("engine contract", () => {
+  it("passes tools and the json schema to the engine", async () => {
+    const seen: { tools?: string[]; schema?: unknown }[] = [];
+    const base = createMockEngine({ reply: '{"ok":true}' });
+    const engine = {
+      ...base,
+      async load(model: Parameters<typeof base.load>[0], opts: Parameters<typeof base.load>[1]) {
+        const loaded = await base.load(model, opts);
+        return {
+          ...loaded,
+          generate(messages: Parameters<typeof loaded.generate>[0], o: Parameters<typeof loaded.generate>[1]) {
+            seen.push({ tools: Object.keys(o.tools ?? {}), schema: o.jsonSchema });
+            return loaded.generate(messages, o);
+          },
+        };
+      },
+    };
+    const ai = await createZeroth(engine).load("auto");
+    ai.tools({ lookup: { description: "Look something up", run: () => 1 } });
+
+    await ai.complete("hi");
+    await ai.json("hi", { type: "object" });
+
+    assert.deepEqual(seen[0], { tools: ["lookup"], schema: undefined });
+    assert.deepEqual(seen[1], { tools: ["lookup"], schema: { type: "object" } });
+  });
+
+  it("throws ABORTED when the signal fires mid-stream", async () => {
+    const ai = await load({ tokenDelayMs: 5, reply: "a b c d e f g h" });
+    const ctl = new AbortController();
+    const run = (async () => {
+      let n = 0;
+      for await (const _ of ai.chat("x", { signal: ctl.signal })) if (++n === 2) ctl.abort();
+    })();
+    await assert.rejects(run, { code: "ABORTED" });
+  });
+});

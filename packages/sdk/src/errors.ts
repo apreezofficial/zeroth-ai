@@ -3,7 +3,11 @@ export type ZerothErrorCode =
   | "NOT_LOADED"
   | "INVALID_JSON"
   | "SCHEMA_MISMATCH"
-  | "ABORTED";
+  | "ABORTED"
+  | "MODEL_UNAVAILABLE"
+  | "INSUFFICIENT_MEMORY"
+  | "DOWNLOAD_FAILED"
+  | "CHECKSUM_MISMATCH";
 
 export class ZerothError extends Error {
   readonly code: ZerothErrorCode;

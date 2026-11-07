@@ -9,7 +9,8 @@ zeroth/
 ├── apps/
 │   └── web/            @zeroth/web  — the marketing site and docs (Next.js, Tailwind)
 ├── packages/
-│   └── sdk/            @zeroth/sdk  — the SDK (TypeScript)
+│   ├── sdk/            @zeroth/sdk       — core API, types, engine interface (no native code)
+│   └── sdk-node/       @zeroth/sdk-node  — real runtime for Node/Electron: llama.cpp, CLI
 ├── tsconfig.base.json  shared TypeScript settings for packages
 └── package.json        workspace root and scripts
 ```
@@ -36,10 +37,20 @@ npm run dev          # site on http://localhost:3000
 
 Target one workspace with `-w`, for example `npm run test -w @zeroth/sdk`.
 
+## Try it
+
+```bash
+npm install && npm run build
+npm run cli -- models              # which models fit this machine
+npm run cli -- pull nano-1b        # download + verify (0.8 GB, once)
+npm run cli -- chat                # chat fully offline
+```
+
 ## Status
 
-- **Website** is a working landing site plus docs, with placeholder copy and stats. Forms are not connected to a backend yet.
-- **SDK** is a typed scaffold: the public API from the docs, a pluggable `Engine` interface, schema validation for `json()`, and a mock engine for tests. There is **no real inference engine yet**, so `zeroth.load()` throws `ENGINE_UNAVAILABLE` until one is registered.
-- `@zeroth/sdk` is marked `"private": true` so it cannot be published by accident. Remove that when you are ready to release.
+- **`@zeroth/sdk-node` works.** It runs real open-weight models locally (Metal, CUDA, Vulkan, CPU) with streaming, grammar-constrained JSON, tool calling, embeddings, abort, and resumable SHA-256-verified downloads. See [`packages/sdk-node/README.md`](packages/sdk-node/README.md).
+- **iOS, Android and in-browser runtimes are not built yet.** The docs and site show the API they will expose.
+- **Website** is a working landing site plus docs, with placeholder customer quotes and stats. Forms are not connected to a backend.
+- Packages are marked `"private": true` so nothing is published by accident.
 
-See [`packages/sdk/README.md`](packages/sdk/README.md) for the SDK design and roadmap.
+See [`packages/sdk/README.md`](packages/sdk/README.md) for the core API design and roadmap.

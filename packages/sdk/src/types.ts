@@ -43,6 +43,8 @@ export interface JsonSchema {
 
 export interface ToolDefinition<Args = Record<string, unknown>> {
   description: string;
+  /** JSON Schema for the arguments the model should pass. Omit for tools that take none. */
+  parameters?: JsonSchema;
   run(args: Args): unknown | Promise<unknown>;
 }
 
