@@ -43,6 +43,16 @@ export function Header() {
   const on = (h: string) => path === h || path.startsWith(h + "/");
 
   useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const set = () => document.documentElement.style.setProperty("--header-h", `${el.offsetHeight}px`);
+    set();
+    const ro = new ResizeObserver(set);
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
+
+  useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 4);
     const onKey = (e: KeyboardEvent) => e.key === "Escape" && setMenu(false);
     const onDown = (e: PointerEvent) => {

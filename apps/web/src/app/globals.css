@@ -101,3 +101,65 @@ body {
     transform: none;
   }
 }
+
+/* ---------- docs typography ---------- */
+.doc p,
+.doc li {
+  line-height: 1.7;
+  color: rgba(11, 11, 15, 0.84);
+}
+.doc > p,
+.doc section > p {
+  margin-top: 1rem;
+}
+.doc ul,
+.doc ol {
+  margin-top: 1rem;
+  padding-left: 1.3rem;
+}
+.doc ul {
+  list-style: disc;
+}
+.doc ol {
+  list-style: decimal;
+}
+.doc li {
+  margin-top: 0.5rem;
+  padding-left: 0.15rem;
+}
+.doc li::marker {
+  color: var(--accent);
+}
+.doc :not(pre) > code {
+  background: var(--gray);
+  padding: 0.12em 0.4em;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.86em;
+  overflow-wrap: anywhere;
+}
+.doc a:not(.plain) {
+  text-decoration: underline;
+  text-decoration-color: rgba(123, 97, 255, 0.5);
+  text-underline-offset: 4px;
+}
+.doc a:not(.plain):hover {
+  color: var(--accent);
+}
+.doc > *:not(h2):not(aside) + pre,
+.doc section > .code-wrap {
+  margin-top: 1.25rem;
+}
+.doc-code {
+  margin-top: 1.25rem;
+}
+.doc ul.plain-list {
+  list-style: none;
+  padding-left: 0;
+}
+.doc ul.plain-list > li {
+  margin-top: 0;
+  padding-left: 0;
+}
+.doc ul.plain-list > li + li {
+  margin-top: 0.75rem;
+}

@@ -1,10 +1,12 @@
 "use client";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { card } from "./styles";
+import { detectLang, highlight, tokenClass } from "./docs/highlight";
 import { models as allModels, platforms } from "@/lib/content";
 
-export function CodeBlock({ code, file = "code", className = "" }: { code: string; file?: string; className?: string }) {
+export function CodeBlock({ code, file = "code", lang, className = "" }: { code: string; file?: string; lang?: string; className?: string }) {
   const [done, setDone] = useState(false);
+  const tokens = useMemo(() => highlight(code, detectLang(lang ?? file)), [code, lang, file]);
   const copy = async () => {
     try {
       await navigator.clipboard.writeText(code);
@@ -15,17 +17,27 @@ export function CodeBlock({ code, file = "code", className = "" }: { code: strin
     }
   };
   return (
-    <div className={`${card} min-w-0 ${className}`}>
-      <div className="flex items-center gap-1.5 bg-black px-3 py-2.5">
-        <i className="h-2 w-2 rounded-full bg-accent" />
-        <i className="h-2 w-2 rounded-full bg-sky-400" />
-        <i className="h-2 w-2 rounded-full bg-teal-300" />
-        <span className="ml-3 text-xs text-white/60">{file}</span>
-        <button onClick={copy} className="ml-auto text-xs font-semibold text-white/70 hover:text-white">
+    <div className={`min-w-0 overflow-hidden border border-black bg-[#0d0d10] text-white shadow-[6px_6px_0_rgba(0,0,0,0.12)] ${className}`}>
+      <div className="flex items-center gap-1.5 border-b border-white/10 px-3 py-2">
+        <i className="h-2 w-2 shrink-0 rounded-full bg-accent" />
+        <i className="h-2 w-2 shrink-0 rounded-full bg-sky-400" />
+        <i className="h-2 w-2 shrink-0 rounded-full bg-teal-300" />
+        <span className="ml-2 min-w-0 flex-1 truncate font-mono text-[11.5px] text-white/55">{file}</span>
+        <button
+          onClick={copy}
+          aria-label={done ? "Copied" : `Copy ${file}`}
+          className="-my-1 shrink-0 px-2 py-2.5 text-[12px] font-semibold text-white/70 hover:text-white sm:py-1.5"
+        >
           {done ? "Copied ✓" : "Copy"}
         </button>
       </div>
-      <pre className="overflow-x-auto p-5 font-mono text-[13px] leading-[1.7]">{code}</pre>
+      <pre className="overflow-x-auto p-4 font-mono text-[12.5px] leading-[1.75] sm:p-5 sm:text-[13px]" tabIndex={0}>
+        <code>
+          {tokens.map((t, i) => (
+            <span key={i} className={tokenClass[t.kind]}>{t.text}</span>
+          ))}
+        </code>
+      </pre>
     </div>
   );
 }

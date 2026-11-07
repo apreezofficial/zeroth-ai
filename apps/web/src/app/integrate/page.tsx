@@ -24,7 +24,12 @@ export default function IntegratePage() {
         sub="Zeroth is a library you drop into the app you already have. Same API on every platform, no backend to run."
       />
       <section className="bg-gray py-20">
-        <div className="mx-auto max-w-[1100px] px-6"><PlatformTabs /></div>
+        <div className="mx-auto max-w-[1100px] px-6">
+          <PlatformTabs />
+          <p className="mt-8 text-[13px] leading-[1.6] text-black/55">
+            Available today: Desktop and Node. iOS, Android and in-browser runtimes are in development, and the snippets above show the API they will expose.
+          </p>
+        </div>
       </section>
       <section className="bg-white py-24">
         <div className="mx-auto max-w-[1200px] px-6">

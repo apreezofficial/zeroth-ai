@@ -103,9 +103,9 @@ export const models = [
   { id: "nano-1b", params: "1.2B", size: "0.8 GB", ram: "3 GB", speed: "70+ tok/s", tier: "Phones", best: "Autocomplete, classification, short replies", platforms: "iOS · Android · Web · Desktop" },
   { id: "lite-3b", params: "3B", size: "1.9 GB", ram: "6 GB", speed: "55+ tok/s", tier: "Phones", best: "Summaries, rewriting, quick Q&A on flagships", platforms: "iOS · Android · Web · Desktop" },
   { id: "core-8b", params: "8B", size: "4.8 GB", ram: "12 GB", speed: "40+ tok/s", tier: "Laptops", best: "General chat, writing, code help, tool use", platforms: "Web · Desktop · iPad" },
-  { id: "vision-8b", params: "8B", size: "5.6 GB", ram: "14 GB", speed: "30+ tok/s", tier: "Laptops", best: "Read screenshots, documents and photos", platforms: "Desktop · iPad" },
+  { id: "vision-8b", params: "8B", size: "5.6 GB", ram: "14 GB", speed: "30+ tok/s", tier: "Laptops", best: "Coming soon: read screenshots, documents and photos", platforms: "Not in the runtime yet" },
   { id: "pro-32b", params: "32B", size: "19 GB", ram: "32 GB", speed: "15+ tok/s", tier: "Workstations", best: "Deep reasoning, long documents, hard code", platforms: "Desktop" },
-  { id: "embed-s", params: "110M", size: "0.1 GB", ram: "1 GB", speed: "1k docs/s", tier: "Phones", best: "Semantic search and retrieval over local files", platforms: "All platforms" },
+  { id: "embed-s", params: "137M", size: "0.1 GB", ram: "1 GB", speed: "1k docs/s", tier: "Phones", best: "Semantic search and retrieval over local files", platforms: "All platforms" },
 ] as const;
 
 export const platforms = [

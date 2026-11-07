@@ -20,7 +20,7 @@ export default function ModelsPage() {
     <>
       <PageHero
         title={<>The right brain<br />for every device.</>}
-        sub="Six models from 110M to 32B parameters. Quantised to 4-bit so they stay small, fast and sharp."
+        sub="Open-weight models from 137M to 32B parameters, quantised to 4-bit so they stay small and fast. Five run today; vision is on the way."
       />
       <section className="bg-gray py-20">
         <div className="mx-auto max-w-[1200px] px-6"><ModelsExplorer /></div>
