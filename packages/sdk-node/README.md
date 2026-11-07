@@ -1,18 +1,18 @@
-# @zeroth/sdk-node
+# @zeroth-ai/sdk-node
 
 Run AI models on the user's machine from Node, Electron or a Tauri sidecar. Powered by [llama.cpp](https://github.com/ggml-org/llama.cpp) through [node-llama-cpp](https://node-llama-cpp.withcat.ai), with Metal, CUDA, Vulkan and CPU backends.
 
 After the first model download, nothing touches the network.
 
 ```ts
-import { zeroth } from "@zeroth/sdk-node"
+import { zeroth } from "@zeroth-ai/sdk-node"
 
 const ai = await zeroth.load("auto")      // picks a model that fits this machine
 
 for await (const token of ai.chat("Plan my day")) process.stdout.write(token)
 ```
 
-Importing the package registers the engine, so the whole `@zeroth/sdk` API works: `chat`, `complete`, `json`, `embed`, `tools`, `unload`.
+Importing the package registers the engine, so the whole `@zeroth-ai/sdk` API works: `chat`, `complete`, `json`, `embed`, `tools`, `unload`.
 
 ## CLI
 
@@ -56,9 +56,9 @@ Models are stored in `~/Library/Caches/zeroth` (macOS), `~/.cache/zeroth` (Linux
 ## Develop
 
 ```bash
-npm run build -w @zeroth/sdk-node
-npm run test  -w @zeroth/sdk-node                          # unit tests, no model needed
-ZEROTH_E2E=1 npm run test -w @zeroth/sdk-node              # real-model tests (downloads ~0.9 GB once)
+npm run build -w @zeroth-ai/sdk-node
+npm run test  -w @zeroth-ai/sdk-node                          # unit tests, no model needed
+ZEROTH_E2E=1 npm run test -w @zeroth-ai/sdk-node              # real-model tests (downloads ~0.9 GB once)
 ```
 
 ## Known limits

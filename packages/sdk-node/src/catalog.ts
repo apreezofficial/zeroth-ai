@@ -1,4 +1,4 @@
-import type { ModelId } from "@zeroth/sdk";
+import type { ModelId } from "@zeroth-ai/sdk";
 
 export interface CatalogEntry {
   id: ModelId;

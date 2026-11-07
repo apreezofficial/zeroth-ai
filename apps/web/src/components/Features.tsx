@@ -55,7 +55,7 @@ function CodeMock() {
           <span className="ml-3 text-xs text-white/60">chat.ts</span>
         </div>
         <pre className="overflow-x-auto p-5 font-mono text-[13px] leading-[1.7]">
-{`import { zeroth } from "@zeroth/sdk"
+{`import { zeroth } from "@zeroth-ai/sdk"
 
 const ai = await zeroth.load("core-8b")
 

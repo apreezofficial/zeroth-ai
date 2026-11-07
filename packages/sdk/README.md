@@ -1,13 +1,13 @@
-# @zeroth/sdk
+# @zeroth-ai/sdk
 
 Run a full AI model inside your app, on-device.
 
-> The core API, types, validation and `Engine` interface. On its own it has no runtime: `zeroth.load()` rejects with `ENGINE_UNAVAILABLE` until an engine is registered. Use [`@zeroth/sdk-node`](../sdk-node/README.md) for a working Node/Electron runtime.
+> The core API, types, validation and `Engine` interface. On its own it has no runtime: `zeroth.load()` rejects with `ENGINE_UNAVAILABLE` until an engine is registered. Use [`@zeroth-ai/sdk-node`](../sdk-node/README.md) for a working Node/Electron runtime.
 
 ## API
 
 ```ts
-import { zeroth } from "@zeroth/sdk"
+import { zeroth } from "@zeroth-ai/sdk"
 
 const ai = await zeroth.load("auto")           // or "core-8b", or { prefer: "quality", ... }
 
@@ -34,7 +34,7 @@ src/
 ├── validate.ts   JSON extraction and schema validation for json()
 ├── errors.ts     ZerothError
 ├── mock.ts       in-memory engine for tests and demos
-└── testing.ts    "@zeroth/sdk/testing" entry (createMockEngine)
+└── testing.ts    "@zeroth-ai/sdk/testing" entry (createMockEngine)
 ```
 
 The public API is engine-agnostic. A native runtime (Metal, CUDA, Vulkan, WebGPU, CPU) implements `Engine` and calls `registerEngine()` on import. Everything above that layer stays the same on every platform.
@@ -42,8 +42,8 @@ The public API is engine-agnostic. A native runtime (Metal, CUDA, Vulkan, WebGPU
 ### Try it without a runtime
 
 ```ts
-import { createZeroth } from "@zeroth/sdk"
-import { createMockEngine } from "@zeroth/sdk/testing"
+import { createZeroth } from "@zeroth-ai/sdk"
+import { createMockEngine } from "@zeroth-ai/sdk/testing"
 
 const ai = await createZeroth(createMockEngine()).load("auto")
 console.log(await ai.complete("hello")) // "Echo: hello"
@@ -52,16 +52,16 @@ console.log(await ai.complete("hello")) // "Echo: hello"
 ## Develop
 
 ```bash
-npm run build -w @zeroth/sdk
-npm run test  -w @zeroth/sdk
+npm run build -w @zeroth-ai/sdk
+npm run test  -w @zeroth-ai/sdk
 ```
 
 ## Roadmap
 
-- [x] First real engine: llama.cpp for Node (`@zeroth/sdk-node`)
+- [x] First real engine: llama.cpp for Node (`@zeroth-ai/sdk-node`)
 - [x] Hardware probe and model selection
 - [x] Resumable, checksum-verified model downloads
 - [x] Tool calling (driven by the engine)
 - [ ] In-browser engine (WebGPU)
 - [ ] Platform packages: Swift, Kotlin
-- [ ] Remove `"private": true` and publish
+- [x] Publish-ready under the `@zeroth-ai` npm org (not yet published)

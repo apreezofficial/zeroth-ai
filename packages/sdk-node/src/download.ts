@@ -2,7 +2,7 @@ import { createHash } from "node:crypto";
 import { createReadStream } from "node:fs";
 import fs from "node:fs/promises";
 import path from "node:path";
-import { ZerothError } from "@zeroth/sdk";
+import { ZerothError } from "@zeroth-ai/sdk";
 
 export interface DownloadOptions {
   url: string;

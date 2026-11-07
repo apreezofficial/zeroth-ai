@@ -1,9 +1,15 @@
 {
-  "name": "@zeroth/sdk-node",
+  "name": "@zeroth-ai/sdk-node",
   "version": "0.1.0",
-  "private": true,
   "description": "Zeroth for Node, Electron and Tauri sidecars: runs models locally with llama.cpp (Metal, CUDA, Vulkan, CPU).",
-  "keywords": ["ai", "llm", "llama.cpp", "on-device", "offline", "local-first"],
+  "keywords": [
+    "ai",
+    "llm",
+    "llama.cpp",
+    "on-device",
+    "offline",
+    "local-first"
+  ],
   "type": "module",
   "sideEffects": true,
   "main": "./dist/index.js",
@@ -24,10 +30,11 @@
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "typecheck": "tsc -p tsconfig.json --noEmit",
-    "test": "tsc -p tsconfig.json && node --test \"dist/**/*.test.js\""
+    "test": "tsc -p tsconfig.json && node --test \"dist/**/*.test.js\"",
+    "prepublishOnly": "npm run build && npm test"
   },
   "dependencies": {
-    "@zeroth/sdk": "*",
+    "@zeroth-ai/sdk": "^0.1.0",
     "node-llama-cpp": "^3.22.3"
   },
   "devDependencies": {
@@ -35,5 +42,18 @@
   },
   "engines": {
     "node": ">=20.11"
-  }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ai-zeroth/zeroth.git",
+    "directory": "packages/sdk-node"
+  },
+  "homepage": "https://github.com/ai-zeroth/zeroth#readme",
+  "bugs": {
+    "url": "https://github.com/ai-zeroth/zeroth/issues"
+  },
+  "author": "apreezofficial"
 }

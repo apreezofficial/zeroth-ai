@@ -24,7 +24,7 @@ export default function DocsHome() {
       <CodeBlock
         className="mt-10"
         file="app.ts"
-        code={`import { zeroth } from "@zeroth/sdk-node"
+        code={`import { zeroth } from "@zeroth-ai/sdk-node"
 
 const ai = await zeroth.load("auto")
 

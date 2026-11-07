@@ -8,7 +8,7 @@ import {
   type LoadOptions,
   type Message,
   type ModelInfo,
-} from "@zeroth/sdk";
+} from "@zeroth-ai/sdk";
 import {
   defineChatSessionFunction,
   getLlama,

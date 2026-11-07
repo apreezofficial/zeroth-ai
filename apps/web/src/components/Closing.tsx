@@ -31,7 +31,7 @@ export function Download() {
           <p className="mt-5 text-white/85">Free for indie apps · One SDK for every platform</p>
         </div>
         <div className="relative flex flex-col gap-3 md:mr-64">
-          <code className="bg-black px-5 py-4 font-mono text-[15px]">$ npm i @zeroth/sdk</code>
+          <code className="bg-black px-5 py-4 font-mono text-[15px]">$ npm i @zeroth-ai/sdk</code>
           <Button light href="/docs">Read the docs</Button>
         </div>
       </div>

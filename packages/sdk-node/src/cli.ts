@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import readline from "node:readline/promises";
-import { ZerothError, type Message, type ModelId } from "@zeroth/sdk";
+import { ZerothError, type Message, type ModelId } from "@zeroth-ai/sdk";
 import { llamaEngine, zeroth } from "./index.js";
 import { memoryBudget } from "./probe.js";
 import { selectModel } from "./select.js";

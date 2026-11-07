@@ -8,15 +8,15 @@
     "packages/*"
   ],
   "scripts": {
-    "dev": "npm run dev -w @zeroth/web",
-    "build": "npm run build -w @zeroth/sdk && npm run build -w @zeroth/sdk-node && npm run build -w @zeroth/web",
-    "build:web": "npm run build -w @zeroth/web",
-    "build:sdk": "npm run build -w @zeroth/sdk",
-    "start": "npm run start -w @zeroth/web",
+    "dev": "npm run dev -w @zeroth-ai/web",
+    "build": "npm run build -w @zeroth-ai/sdk && npm run build -w @zeroth-ai/sdk-node && npm run build -w @zeroth-ai/web",
+    "build:web": "npm run build -w @zeroth-ai/web",
+    "build:sdk": "npm run build -w @zeroth-ai/sdk",
+    "start": "npm run start -w @zeroth-ai/web",
     "lint": "npm run lint --workspaces --if-present",
     "typecheck": "npm run typecheck --workspaces --if-present",
     "test": "npm run test --workspaces --if-present",
-    "build:node": "npm run build -w @zeroth/sdk-node",
+    "build:node": "npm run build -w @zeroth-ai/sdk-node",
     "cli": "node packages/sdk-node/dist/cli.js"
   },
   "devDependencies": {

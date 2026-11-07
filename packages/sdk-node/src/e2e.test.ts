@@ -1,5 +1,5 @@
 // End-to-end tests against a REAL model. Skipped unless ZEROTH_E2E=1 because the
-// first run downloads ~0.9 GB. Run with:  ZEROTH_E2E=1 npm test -w @zeroth/sdk-node
+// first run downloads ~0.9 GB. Run with:  ZEROTH_E2E=1 npm test -w @zeroth-ai/sdk-node
 import assert from "node:assert/strict";
 import { after, before, describe, it } from "node:test";
 import { llamaEngine, zeroth, type Zeroth } from "./index.js";

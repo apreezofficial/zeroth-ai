@@ -1,4 +1,4 @@
-import { ZerothError, type LoadOptions } from "@zeroth/sdk";
+import { ZerothError, type LoadOptions } from "@zeroth-ai/sdk";
 import type { CatalogEntry } from "./catalog.js";
 
 export interface SelectInput {

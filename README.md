@@ -7,10 +7,10 @@ This repo is a small monorepo (npm workspaces).
 ```
 zeroth/
 ├── apps/
-│   └── web/            @zeroth/web  — the marketing site and docs (Next.js, Tailwind)
+│   └── web/            @zeroth-ai/web  — the marketing site and docs (Next.js, Tailwind)
 ├── packages/
-│   ├── sdk/            @zeroth/sdk       — core API, types, engine interface (no native code)
-│   └── sdk-node/       @zeroth/sdk-node  — real runtime for Node/Electron: llama.cpp, CLI
+│   ├── sdk/            @zeroth-ai/sdk       — core API, types, engine interface (no native code)
+│   └── sdk-node/       @zeroth-ai/sdk-node  — real runtime for Node/Electron: llama.cpp, CLI
 ├── tsconfig.base.json  shared TypeScript settings for packages
 └── package.json        workspace root and scripts
 ```
@@ -35,7 +35,7 @@ npm run dev          # site on http://localhost:3000
 | `npm run typecheck` | Type-check every workspace |
 | `npm run lint` | Lint every workspace |
 
-Target one workspace with `-w`, for example `npm run test -w @zeroth/sdk`.
+Target one workspace with `-w`, for example `npm run test -w @zeroth-ai/sdk`.
 
 ## Try it
 
@@ -48,9 +48,26 @@ npm run cli -- chat                # chat fully offline
 
 ## Status
 
-- **`@zeroth/sdk-node` works.** It runs real open-weight models locally (Metal, CUDA, Vulkan, CPU) with streaming, grammar-constrained JSON, tool calling, embeddings, abort, and resumable SHA-256-verified downloads. See [`packages/sdk-node/README.md`](packages/sdk-node/README.md).
+- **`@zeroth-ai/sdk-node` works.** It runs real open-weight models locally (Metal, CUDA, Vulkan, CPU) with streaming, grammar-constrained JSON, tool calling, embeddings, abort, and resumable SHA-256-verified downloads. See [`packages/sdk-node/README.md`](packages/sdk-node/README.md).
 - **iOS, Android and in-browser runtimes are not built yet.** The docs and site show the API they will expose.
 - **Website** is a working landing site plus docs, with placeholder customer quotes and stats. Forms are not connected to a backend.
-- Packages are marked `"private": true` so nothing is published by accident.
+- Both packages are **publish-ready** under the `@zeroth-ai` npm org but **not published yet**. See [Publishing](#publishing).
 
 See [`packages/sdk/README.md`](packages/sdk/README.md) for the core API design and roadmap.
+
+## Publishing
+
+Packages live under the [`@zeroth-ai`](https://www.npmjs.com/org/zeroth-ai) npm org. Publish the core first, because `@zeroth-ai/sdk-node` depends on it.
+
+```bash
+npm login                                   # as the org owner
+npm publish -w @zeroth-ai/sdk               # prepublishOnly builds and tests first
+npm publish -w @zeroth-ai/sdk-node
+```
+
+- npm asks for a one-time code if 2FA is on (`--otp=123456`). Turn 2FA on for the account and consider enforcing it for the org.
+- Bump `version` in each package before every release. `@zeroth-ai/sdk-node` depends on `@zeroth-ai/sdk` by range (`^0.1.0`).
+- No `LICENSE` is set yet, so by default all rights are reserved. Add one (and a `"license"` field) before publishing if you want others to use the code.
+- After publishing, update the install notes in `apps/web/src/lib/docs-content.tsx` and the READMEs to say `npm i @zeroth-ai/sdk-node`.
+- Check what ships with `npm pack -w <package> --dry-run`.
+

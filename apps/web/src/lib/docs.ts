@@ -86,7 +86,7 @@ export const docs: DocMeta[] = [
   },
   {
     slug: "api", title: "API reference", group: "Reference",
-    description: "Every method and option in @zeroth/sdk.",
+    description: "Every method and option in @zeroth-ai/sdk.",
     keywords: ["api", "reference", "methods", "options", "types", "LoadOptions", "GenerateOptions"],
     headings: [{ id: "zeroth", title: "zeroth" }, { id: "instance", title: "The loaded model" }, { id: "load-options", title: "LoadOptions" }, { id: "generate-options", title: "GenerateOptions" }],
   },

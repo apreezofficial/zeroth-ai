@@ -1,4 +1,4 @@
-import { registerEngine, zeroth } from "@zeroth/sdk";
+import { registerEngine, zeroth } from "@zeroth-ai/sdk";
 import { createLlamaEngine } from "./engine.js";
 
 /** The default engine, using the standard cache directory. */
@@ -8,7 +8,7 @@ export const llamaEngine = createLlamaEngine();
 registerEngine(llamaEngine);
 
 export { zeroth };
-export { ZerothError } from "@zeroth/sdk";
+export { ZerothError } from "@zeroth-ai/sdk";
 export type {
   GenerateOptions,
   Input,
@@ -21,7 +21,7 @@ export type {
   ToolDefinition,
   ToolMap,
   Zeroth,
-} from "@zeroth/sdk";
+} from "@zeroth-ai/sdk";
 
 export { createLlamaEngine, toChatHistory } from "./engine.js";
 export type { LlamaEngine, LlamaEngineOptions } from "./engine.js";

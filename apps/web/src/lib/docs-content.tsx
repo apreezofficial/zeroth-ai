@@ -24,7 +24,7 @@ export const bodies: Record<string, () => ReactNode> = {
         no API key to protect and no per-token bill. Prompts and answers never leave the machine.
       </p>
       <p>You call a small, typed API. Zeroth picks a model that fits the hardware, downloads it once, and streams answers from local memory.</p>
-      {code(`import { zeroth } from "@zeroth/sdk-node"
+      {code(`import { zeroth } from "@zeroth-ai/sdk-node"
 
 const ai = await zeroth.load("auto")
 
@@ -74,7 +74,7 @@ cd zeroth
 npm install
 npm run build`, "terminal")}
       <Callout type="tip">
-        <p>Once the packages are published you will install with <code>npm i @zeroth/sdk-node</code>. The code you write will not change.</p>
+        <p>Once the packages are published you will install with <code>npm i @zeroth-ai/sdk-node</code>. The code you write will not change.</p>
       </Callout>
 
       <H2 id="try-the-cli">Try the CLI</H2>
@@ -101,7 +101,7 @@ npm run cli -- chat          # chat fully offline`, "terminal")}
       <p>
         Pass <code>{'"auto"'}</code> and Zeroth picks a model that fits the device. The first run downloads it. Every run after that starts from disk.
       </p>
-      {code(`import { zeroth } from "@zeroth/sdk-node"
+      {code(`import { zeroth } from "@zeroth-ai/sdk-node"
 
 const ai = await zeroth.load({
   model: "auto",
@@ -428,7 +428,7 @@ npm run cli -- chat --system "You are a concise assistant."`, "terminal")}
     <>
       <H2 id="handling-errors">Handling errors</H2>
       <p>Every SDK error is a <code>ZerothError</code> with a stable <code>code</code> you can branch on.</p>
-      {code(`import { ZerothError } from "@zeroth/sdk-node"
+      {code(`import { ZerothError } from "@zeroth-ai/sdk-node"
 
 try {
   const ai = await zeroth.load("pro-32b")
@@ -440,7 +440,7 @@ try {
 
       <H2 id="codes">Error codes</H2>
       <Fields rows={[
-        ["ENGINE_UNAVAILABLE", "No runtime is registered. Import @zeroth/sdk-node, or register your own engine."],
+        ["ENGINE_UNAVAILABLE", "No runtime is registered. Import @zeroth-ai/sdk-node, or register your own engine."],
         ["NOT_LOADED", "You used a model after unload(). Call zeroth.load() again."],
         ["MODEL_UNAVAILABLE", "That model id is not available in this runtime. The message lists what is."],
         ["INSUFFICIENT_MEMORY", "The model is too big for this device. Choose a smaller one or use auto."],

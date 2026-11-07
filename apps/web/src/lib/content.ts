@@ -28,7 +28,7 @@ export const features: Feature[] = [
       { t: "Chat", b: "Stream tokens, ask for JSON, call tools or compute embeddings from one small API." },
     ],
     file: "chat.ts",
-    code: `import { zeroth } from "@zeroth/sdk"
+    code: `import { zeroth } from "@zeroth-ai/sdk"
 
 const ai = await zeroth.load("auto")
 
@@ -137,8 +137,8 @@ ai.chat("Summarise this note").collect { token ->
     id: "web",
     label: "Web",
     file: "app.ts",
-    install: `npm i @zeroth/sdk`,
-    code: `import { zeroth } from "@zeroth/sdk"
+    install: `npm i @zeroth-ai/sdk`,
+    code: `import { zeroth } from "@zeroth-ai/sdk"
 
 const ai = await zeroth.load("auto")
 
@@ -150,8 +150,8 @@ for await (const token of ai.chat("Summarise this note")) {
     id: "desktop",
     label: "Desktop",
     file: "main.ts",
-    install: `npm i @zeroth/sdk-node`,
-    code: `import { zeroth } from "@zeroth/sdk-node"
+    install: `npm i @zeroth-ai/sdk-node`,
+    code: `import { zeroth } from "@zeroth-ai/sdk-node"
 
 const ai = await zeroth.load({ prefer: "quality" })
 
