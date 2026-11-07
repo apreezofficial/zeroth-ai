@@ -21,7 +21,7 @@
     }
   },
   "bin": {
-    "zeroth": "./dist/cli.js"
+    "zeroth": "dist/cli.js"
   },
   "files": [
     "dist",
