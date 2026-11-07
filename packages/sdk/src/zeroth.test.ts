@@ -8,9 +8,9 @@ const load = (opts = {}) => createZeroth(createMockEngine(opts)).load("auto");
 describe("load", () => {
   it("resolves a model and reports progress", async () => {
     const seen: number[] = [];
-    const ai = await createZeroth(createMockEngine()).load({ model: "core-8b", onProgress: (p) => seen.push(p) });
-    assert.equal(ai.model.id, "core-8b");
-    assert.equal(ai.model.name, "core-8b-q4");
+    const ai = await createZeroth(createMockEngine()).load({ model: "granite-3b", onProgress: (p) => seen.push(p) });
+    assert.equal(ai.model.id, "granite-3b");
+    assert.equal(ai.model.name, "granite-3b-q4");
     assert.equal(ai.ready, true);
     assert.deepEqual(seen, [1]);
   });

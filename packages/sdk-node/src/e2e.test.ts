@@ -6,11 +6,11 @@ import { llamaEngine, zeroth, type Zeroth } from "./index.js";
 
 const enabled = process.env.ZEROTH_E2E === "1";
 
-describe("real model (nano-1b)", { skip: !enabled && "set ZEROTH_E2E=1 to run", timeout: 900_000 }, () => {
+describe("real model (lfm-1b)", { skip: !enabled && "set ZEROTH_E2E=1 to run", timeout: 900_000 }, () => {
   let ai: Zeroth;
 
   before(async () => {
-    ai = await zeroth.load({ model: "nano-1b" });
+    ai = await zeroth.load({ model: "lfm-1b" });
   });
   after(async () => {
     await ai?.unload();

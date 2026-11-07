@@ -58,10 +58,10 @@ for await (const token of ai.chat("Summarise my notes")) {
     code: `const ai = await zeroth.load({
   prefer: "quality",       // or "speed" | "battery"
   maxDownloadMB: 2500,
-  fallback: "nano-1b",
+  fallback: "lfm-1b",
 })
 
-console.log(ai.model.name) // "core-8b-q4"`,
+console.log(ai.model.name) // "granite-3b-q4"`,
     points: [
       { t: "Hardware aware", b: "Metal, CUDA, Vulkan, WebGPU and CPU paths, chosen automatically." },
       { t: "Quantised for size", b: "4-bit builds keep quality high while staying small enough to ship." },
@@ -100,12 +100,10 @@ for try await token in ai.chat("Plan my day") {
 ];
 
 export const models = [
-  { id: "nano-1b", params: "1.2B", size: "0.8 GB", ram: "3 GB", speed: "70+ tok/s", tier: "Phones", best: "Autocomplete, classification, short replies", platforms: "iOS · Android · Web · Desktop" },
-  { id: "lite-3b", params: "3B", size: "1.9 GB", ram: "6 GB", speed: "55+ tok/s", tier: "Phones", best: "Summaries, rewriting, quick Q&A on flagships", platforms: "iOS · Android · Web · Desktop" },
-  { id: "core-8b", params: "8B", size: "4.8 GB", ram: "12 GB", speed: "40+ tok/s", tier: "Laptops", best: "General chat, writing, code help, tool use", platforms: "Web · Desktop · iPad" },
-  { id: "vision-8b", params: "8B", size: "5.6 GB", ram: "14 GB", speed: "30+ tok/s", tier: "Laptops", best: "Coming soon: read screenshots, documents and photos", platforms: "Not in the runtime yet" },
-  { id: "pro-32b", params: "32B", size: "19 GB", ram: "32 GB", speed: "15+ tok/s", tier: "Workstations", best: "Deep reasoning, long documents, hard code", platforms: "Desktop" },
-  { id: "embed-s", params: "137M", size: "0.1 GB", ram: "1 GB", speed: "1k docs/s", tier: "Phones", best: "Semantic search and retrieval over local files", platforms: "All platforms" },
+  { id: "lfm-1b", params: "1.2B", size: "0.7 GB", ram: "2 GB", speed: "Not yet measured", tier: "Phones", best: "Short replies, classification, quick Q&A", platforms: "iOS · Android · Web · Desktop" },
+  { id: "lfm3-1.7b", params: "1.7B", size: "1.1 GB", ram: "3 GB", speed: "Not yet measured", tier: "Phones", best: "Chat and rewriting on mid-range phones", platforms: "iOS · Android · Web · Desktop" },
+  { id: "granite-3b", params: "3B", size: "2.2 GB", ram: "5 GB", speed: "Not yet measured", tier: "Laptops", best: "General chat, summaries, tool use", platforms: "Web · Desktop · iPad" },
+  { id: "gemma-e2b", params: "2B effective", size: "3.4 GB", ram: "6 GB", speed: "Not yet measured", tier: "Laptops", best: "Quantisation-aware 4-bit build for small devices", platforms: "Desktop · Web" },
 ] as const;
 
 export const platforms = [

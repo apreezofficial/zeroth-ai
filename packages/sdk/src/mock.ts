@@ -28,7 +28,7 @@ export function createMockEngine(options: MockEngineOptions = {}): Engine {
   return {
     name: "mock",
     async resolve(opts): Promise<ModelInfo> {
-      const id = opts.model && opts.model !== "auto" ? opts.model : (opts.fallback ?? "nano-1b");
+      const id = opts.model && opts.model !== "auto" ? opts.model : (opts.fallback ?? "lfm-1b");
       return { id, name: `${id}-q4`, params: "mock", sizeMB: 0 };
     },
     async load(_model, opts): Promise<LoadedModel> {

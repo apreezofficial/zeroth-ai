@@ -9,7 +9,7 @@ Run a full AI model inside your app, on-device.
 ```ts
 import { zeroth } from "@zeroth-ai/sdk"
 
-const ai = await zeroth.load("auto")           // or "core-8b", or { prefer: "quality", ... }
+const ai = await zeroth.load("auto")           // or "granite-3b", or { prefer: "quality", ... }
 
 for await (const token of ai.chat("Plan my day")) ui.append(token)
 

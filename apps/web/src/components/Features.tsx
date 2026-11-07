@@ -57,7 +57,7 @@ function CodeMock() {
         <pre className="overflow-x-auto p-5 font-mono text-[13px] leading-[1.7]">
 {`import { zeroth } from "@zeroth-ai/sdk"
 
-const ai = await zeroth.load("core-8b")
+const ai = await zeroth.load("granite-3b")
 
 for await (const t of ai.chat("Plan my day")) {
   ui.append(t)   // streams on-device
@@ -73,9 +73,9 @@ for await (const t of ai.chat("Plan my day")) {
 }
 
 const models = [
-  ["nano-1b", "Phones & wearables", "w-[94%]", "1.2B"],
-  ["core-8b", "Laptops & flagships", "w-[72%]", "8B"],
-  ["pro-32b", "Workstations", "w-[50%]", "32B"],
+  ["lfm-1b", "Phones & wearables", "w-[40%]", "1.2B"],
+  ["granite-3b", "Laptops & flagships", "w-[70%]", "3B"],
+  ["gemma-e2b", "Laptops & phones", "w-[60%]", "2B"],
 ] as const;
 
 function ModelsMock() {

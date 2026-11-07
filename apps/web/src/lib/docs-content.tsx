@@ -12,7 +12,7 @@ const faq: [string, string][] = [
   ["Which platforms work today?", "Node and desktop apps (Electron, Tauri sidecars) on macOS, Linux and Windows. iOS, Android and in-browser runtimes are in development."],
   ["Which models does it run?", "Open-weight models in GGUF form: Llama 3.2 (1B, 3B), Llama 3.1 8B and Qwen2.5 32B for chat, plus nomic-embed-text for embeddings. See Models and licences."],
   ["Can I ship it in a commercial product?", "The SDK code is yours to license. Each model carries its own upstream licence, so read it before you ship. We list them on the models page."],
-  ["How much memory does it need?", "About 1.4 GB for nano-1b and 2.9 GB for lite-3b. Zeroth checks your machine and will not auto-pick a model that does not fit."],
+  ["How much memory does it need?", "About 1.4 GB for lfm-1b and 3.3 GB for granite-3b. Zeroth checks your machine and will not auto-pick a model that does not fit."],
 ];
 
 export const bodies: Record<string, () => ReactNode> = {
@@ -63,8 +63,8 @@ for await (const token of ai.chat("Plan my day")) {
       <ul>
         <li><strong>Node.js 20.11 or newer.</strong></li>
         <li><strong>macOS, Linux or Windows</strong>, on x64 or arm64. Apple Silicon uses the GPU through Metal.</li>
-        <li><strong>Memory</strong> for the model you pick: about 1.4 GB for the smallest, 2.9 GB for the 3B model.</li>
-        <li><strong>Disk</strong> for downloads: 0.8 GB to 18.5 GB depending on the model.</li>
+        <li><strong>Memory</strong> for the model you pick: about 1.4 GB for the smallest, 3.3 GB for the 3B model.</li>
+        <li><strong>Disk</strong> for downloads: 0.7 GB to 3.4 GB depending on the model.</li>
       </ul>
 
       <H2 id="from-the-repo">Install from the repo</H2>
@@ -80,7 +80,7 @@ npm run build`, "terminal")}
       <H2 id="try-the-cli">Try the CLI</H2>
       <p>Check what your machine can run, then chat with a model. The first run downloads it.</p>
       {code(`npm run cli -- models        # what fits this machine
-npm run cli -- pull nano-1b  # download and verify a model
+npm run cli -- pull lfm-1b  # download and verify a model
 npm run cli -- chat          # chat fully offline`, "terminal")}
       <p>See <Link href="/docs/cli">Command line</Link> for every command.</p>
 
@@ -108,7 +108,7 @@ const ai = await zeroth.load({
   onProgress: (p) => console.log(\`downloading \${Math.round(p * 100)}%\`),
 })
 
-console.log("loaded", ai.model.name) // e.g. "lite-3b-q4"
+console.log("loaded", ai.model.name) // e.g. "granite-3b-q4"
 
 for await (const token of ai.chat("Why does on-device AI help privacy?")) {
   process.stdout.write(token)
@@ -136,7 +136,7 @@ console.log(task) // { title: "Email Priya the Q3 deck", due: "Friday" }`, "json
       <H2 id="auto-or-named">Auto or named</H2>
       <p>The simplest call lets Zeroth decide. You can also name a model, or pass options.</p>
       {code(`await zeroth.load("auto")          // best fit for this device
-await zeroth.load("nano-1b")       // a specific model
+await zeroth.load("lfm-1b")          // a specific model
 await zeroth.load({ prefer: "speed", maxDownloadMB: 2500 })`, "load.ts")}
 
       <H2 id="options">Options</H2>
@@ -157,7 +157,7 @@ await zeroth.load({ prefer: "speed", maxDownloadMB: 2500 })`, "load.ts")}
         <li><strong>battery</strong> picks the smallest model.</li>
       </ul>
       <p>
-        On a laptop with 8 GB of memory this means <code>lite-3b</code> for quality and <code>nano-1b</code> for battery. A 64 GB machine gets <code>pro-32b</code>.
+        On a laptop with 8 GB of memory this means <code>granite-3b</code> for quality and <code>lfm-1b</code> for battery. Every model in the catalogue fits on a 64 GB machine, so auto picks the largest one there.
         If you name a model that is far too big, you get an <code>INSUFFICIENT_MEMORY</code> error instead of a frozen machine.
       </p>
 
@@ -300,7 +300,7 @@ const answer = await ai.complete("Find my notes about the Q3 deck and summarise 
     <>
       <H2 id="embed-text">Embed text</H2>
       <p>
-        <code>embed()</code> returns one vector per input string. It uses a small dedicated model (<code>embed-s</code>, about 84 MB) that downloads the first time you call it.
+        <code>embed()</code> returns one vector per input string. There is no embedding model in the 2026 catalogue yet, so <code>embed()</code> is not available until one is added.
       </p>
       {code(`const [a, b] = await ai.embed(["invoice from March", "billing for march"])
 console.log(a.length) // 768`, "embed.ts")}
@@ -329,7 +329,7 @@ const ranked = docs
       <Fields cols={["Action", "Network"]} rows={[
         ["load() with the model already on disk", "None"],
         ["chat(), complete(), json(), tools()", "None"],
-        ["embed() for the first time", "Downloads the 84 MB embedding model once"],
+        ["embed()", "Not available yet (no embedding model in the catalogue)"],
         ["load() for a new model", "Downloads it once, with resume and verification"],
       ]} />
 
@@ -371,7 +371,7 @@ npm run cli -- clear-cache  // from the terminal`, "cache.ts")}
 
       <H2 id="options">Options</H2>
       <Fields cols={["Option", "Description"]} rows={[
-        ["--model <id|auto>", "nano-1b, lite-3b, core-8b, pro-32b, or auto."],
+        ["--model <id|auto>", "lfm-1b, lfm3-1.7b, granite-3b, gemma-e2b, or auto."],
         ["--prefer <mode>", "quality, speed or battery."],
         ["--max-tokens <n>", "Limit the length of the answer."],
         ["--system \"<text>\"", "A system prompt."],
@@ -380,8 +380,8 @@ npm run cli -- clear-cache  // from the terminal`, "cache.ts")}
 
       <H2 id="examples">Examples</H2>
       {code(`npm run cli -- models
-npm run cli -- pull nano-1b
-npm run cli -- run "Explain WebGPU in one line" --model nano-1b
+npm run cli -- pull lfm-1b
+npm run cli -- run "Explain WebGPU in one line" --model lfm-1b
 npm run cli -- run "Task: email Priya by Friday" --json '{"type":"object","properties":{"title":{"type":"string"}},"required":["title"]}'
 npm run cli -- chat --system "You are a concise assistant."`, "terminal")}
     </>
@@ -392,11 +392,10 @@ npm run cli -- chat --system "You are a concise assistant."`, "terminal")}
       <H2 id="catalogue">Catalogue</H2>
       <p>All models are open-weight and quantised to 4-bit (GGUF) so they stay small and fast.</p>
       <Fields cols={["Model", "Built on", "Download"]} rows={[
-        ["nano-1b", "Llama 3.2 1B Instruct", "0.8 GB"],
-        ["lite-3b", "Llama 3.2 3B Instruct", "1.9 GB"],
-        ["core-8b", "Llama 3.1 8B Instruct", "4.6 GB"],
-        ["pro-32b", "Qwen2.5 32B Instruct", "18.5 GB"],
-        ["embed-s", "nomic-embed-text v1.5 (embeddings only)", "0.1 GB"],
+        ["lfm-1b", "LFM2.5 1.2B Instruct (Liquid AI)", "0.7 GB"],
+        ["lfm3-1.7b", "LFM3 1.7B (Liquid AI)", "1.1 GB"],
+        ["granite-3b", "Granite 4.2 3B (IBM)", "2.2 GB"],
+        ["gemma-e2b", "Gemma 4 E2B, QAT 4-bit (Google)", "3.4 GB"],
       ]} />
       <Callout type="note">
         <p>A vision model (<code>vision-8b</code>) is planned. The current engine cannot read images yet.</p>
@@ -405,21 +404,18 @@ npm run cli -- chat --system "You are a concise assistant."`, "terminal")}
       <H2 id="memory">Memory needs</H2>
       <p>Approximate memory while running, including the working context. Zeroth will not auto-pick a model that does not fit.</p>
       <Fields cols={["Model", "Memory"]} rows={[
-        ["nano-1b", "about 1.4 GB"],
-        ["lite-3b", "about 2.9 GB"],
-        ["core-8b", "about 6.2 GB"],
-        ["pro-32b", "about 23.6 GB"],
-        ["embed-s", "about 0.2 GB"],
+        ["lfm-1b", "about 1.4 GB"],
+        ["lfm3-1.7b", "about 1.9 GB"],
+        ["granite-3b", "about 3.3 GB"],
+        ["gemma-e2b", "about 4.7 GB"],
       ]} />
       <p>Run <code>npm run cli -- models</code> to see which fit your machine.</p>
 
       <H2 id="licences">Licences</H2>
       <p>Each model keeps its upstream licence. Read it before you ship a model in a product.</p>
       <Fields cols={["Model", "Licence"]} rows={[
-        ["nano-1b, lite-3b", "Llama 3.2 Community License"],
-        ["core-8b", "Llama 3.1 Community License"],
-        ["pro-32b", "Apache 2.0"],
-        ["embed-s", "Apache 2.0"],
+        ["lfm-1b, lfm3-1.7b", "LFM Open License (Liquid AI)"],
+        ["granite-3b, gemma-e2b", "Apache 2.0"],
       ]} />
     </>
   ),
@@ -431,7 +427,7 @@ npm run cli -- chat --system "You are a concise assistant."`, "terminal")}
       {code(`import { ZerothError } from "@zeroth-ai/sdk-node"
 
 try {
-  const ai = await zeroth.load("pro-32b")
+  const ai = await zeroth.load("granite-3b")
 } catch (e) {
   if (e instanceof ZerothError && e.code === "INSUFFICIENT_MEMORY") {
     // fall back to a smaller model

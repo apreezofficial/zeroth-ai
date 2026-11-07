@@ -42,7 +42,7 @@ Target one workspace with `-w`, for example `npm run test -w @zeroth-ai/sdk`.
 ```bash
 npm install && npm run build
 npm run cli -- models              # which models fit this machine
-npm run cli -- pull nano-1b        # download + verify (0.8 GB, once)
+npm run cli -- pull lfm-1b        # download + verify (0.8 GB, once)
 npm run cli -- chat                # chat fully offline
 ```
 

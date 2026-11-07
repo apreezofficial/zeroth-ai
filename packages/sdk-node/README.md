@@ -19,7 +19,7 @@ Importing the package registers the engine, so the whole `@zeroth-ai/sdk` API wo
 ```bash
 npm run build                                  # from the repo root
 npm run cli -- models                          # what fits this machine
-npm run cli -- pull nano-1b                    # download + verify a model
+npm run cli -- pull lfm-1b                    # download + verify a model
 npm run cli -- run "Explain WebGPU in one line"
 npm run cli -- run "Task: email Priya by Friday" --json '{"type":"object","properties":{"title":{"type":"string"}},"required":["title"]}'
 npm run cli -- chat
@@ -34,7 +34,7 @@ npm run cli -- chat
 | **Streaming** | Async iterable of text chunks. `AbortSignal` stops generation within a token. |
 | **Structured output** | `ai.json(prompt, schema)` is grammar-constrained, so the model can only emit valid JSON for your schema, then validated again. |
 | **Tools** | `ai.tools({ name: { description, parameters, run } })` is driven by the model. Tool errors are returned to the model, not thrown. |
-| **Embeddings** | A small dedicated model (`embed-s`, 84 MB) loads on first use. |
+| **Embeddings** | Not available yet: the 2026 catalogue has no embedding model. |
 | **Concurrency** | Requests to one model are queued; each call re-evaluates its own history so state never leaks. |
 
 ## Models
@@ -43,11 +43,10 @@ Open-weight models, quantised to 4-bit (GGUF). Check each upstream license befor
 
 | id | upstream | download | license |
 | --- | --- | --- | --- |
-| `nano-1b` | Llama 3.2 1B Instruct | 0.8 GB | Llama 3.2 Community |
-| `lite-3b` | Llama 3.2 3B Instruct | 1.9 GB | Llama 3.2 Community |
-| `core-8b` | Llama 3.1 8B Instruct | 4.6 GB | Llama 3.1 Community |
-| `pro-32b` | Qwen2.5 32B Instruct | 18.5 GB | Apache 2.0 |
-| `embed-s` | nomic-embed-text v1.5 | 0.1 GB | Apache 2.0 |
+| `lfm-1b` | LFM2.5 1.2B Instruct | 0.7 GB | LFM Open License |
+| `lfm3-1.7b` | LFM3 1.7B | 1.1 GB | LFM Open License |
+| `granite-3b` | Granite 4.2 3B | 2.2 GB | Apache 2.0 |
+| `gemma-e2b` | Gemma 4 E2B (QAT 4-bit) | 3.4 GB | Apache 2.0 |
 
 `vision-8b` is not available yet: the llama.cpp bindings used here have no image input.
 

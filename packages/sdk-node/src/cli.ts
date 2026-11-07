@@ -26,7 +26,7 @@ ${bold("Usage")}
   zeroth clear-cache                 Delete downloaded models
 
 ${bold("Options")}
-  --model <id|auto>      nano-1b, lite-3b, core-8b, pro-32b (default: auto)
+  --model <id|auto>      lfm-1b, lfm3-1.7b, granite-3b, gemma-e2b (default: auto)
   --prefer <quality|speed|battery>
   --max-tokens <n>
   --json '<schema>'      Answer as JSON matching this JSON Schema (run only)

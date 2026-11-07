@@ -1,5 +1,9 @@
 /** Models Zeroth ships. Mirrors the catalogue on the website. */
-export type ModelId = "nano-1b" | "lite-3b" | "core-8b" | "vision-8b" | "pro-32b" | "embed-s";
+export type ModelId =
+  | "lfm-1b"
+  | "lfm3-1.7b"
+  | "granite-3b"
+  | "gemma-e2b";
 
 /** What to optimise for when picking a model automatically. */
 export type Preference = "quality" | "speed" | "battery";
@@ -53,7 +57,7 @@ export type ToolMap = Record<string, ToolDefinition<any>>;
 
 export interface ModelInfo {
   id: ModelId;
-  /** Display name including quantisation, e.g. "core-8b-q4". */
+  /** Display name including quantisation, e.g. "granite-3b-q4". */
   name: string;
   params: string;
   sizeMB: number;
