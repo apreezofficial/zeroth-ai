@@ -113,8 +113,8 @@ export const platforms = [
     label: "Web",
     file: "app.ts",
     status: "preview",
-    install: `Preview: in the repo, not on npm yet.`,
-    note: "Web runs llama.cpp on WebAssembly. It has loaded and run a real model in a browser. Models over 2 GB (granite-3b, gemma-e2b) are Node and Desktop only for now.",
+    install: `npm i @zeroth-ai/sdk-web`,
+    note: "Preview. Web runs llama.cpp on WebAssembly. It has loaded and run a real model in a browser. Models over 2 GB (granite-3b, gemma-e2b) are Node and Desktop only for now.",
     code: `import { zeroth } from "@zeroth-ai/sdk-web"
 
 const ai = await zeroth.load("auto")
@@ -128,8 +128,8 @@ for await (const token of ai.chat("Summarise this note")) {
     label: "iOS · Android",
     file: "App.tsx",
     status: "preview",
-    install: `Preview: in the repo, not on npm yet.`,
-    note: "iOS and Android use React Native with llama.rn. The engine passes its tests against a mock runtime and has not run on a real phone yet.",
+    install: `npm i @zeroth-ai/sdk-react-native llama.rn react-native-fs`,
+    note: "Preview. iOS and Android use React Native with llama.rn. The engine passes its tests against a mock runtime and has not run on a real phone yet.",
     code: `import { zeroth } from "@zeroth-ai/sdk-react-native"
 
 const ai = await zeroth.load("auto")

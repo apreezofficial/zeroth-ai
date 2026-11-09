@@ -2,7 +2,7 @@
 
 Zeroth in the browser. Runs open-weight models on the user's device with llama.cpp compiled to WebAssembly (through [wllama](https://github.com/ngxson/wllama)). Nothing is sent to a server after the model is downloaded.
 
-**Status: preview.** Not published to npm yet. It has loaded and run `lfm-1b` in a real browser tab: download, SHA-256 check, streaming, JSON output, and a reload from cache with no new download.
+**Status: preview.** On npm as `@zeroth-ai/sdk-web`. It has loaded and run `lfm-1b` in a real browser tab: download, SHA-256 check, streaming, JSON output, and a reload from cache with no new download.
 
 ```ts
 import { zeroth } from "@zeroth-ai/sdk-web"

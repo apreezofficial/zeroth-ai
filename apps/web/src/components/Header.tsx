@@ -82,7 +82,7 @@ export function Header() {
     <>
       {banner && (
         <div className="relative z-40 bg-accent px-10 py-3 text-center text-[14px] font-medium text-white">
-          ⚡ Zeroth SDK 0.1 — Node and Desktop on npm today. Web, iOS and Android are in preview. ⚡
+          ⚡ Zeroth SDK 0.1 is on npm — Node and Desktop ready, Web and mobile in preview. ⚡
           <button
             onClick={() => setBanner(false)}
             aria-label="Dismiss"

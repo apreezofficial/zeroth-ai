@@ -39,10 +39,9 @@ Status: planning. Nothing downloaded or installed for training yet.
 - [ ] Build a terminal-style demo panel using real recordings.
 - [ ] In-page playground on the site that runs `lfm-1b` in the visitor's browser with `@zeroth-ai/sdk-web` (the engine works; the page needs the wasm file hosted and a download-size warning).
 
-## Publishing (needs the npm owner)
+## Publishing
 
-- [ ] **The published 0.1.0 packages still have the old model catalogue** (Llama 3.x, Qwen2.5). `npm i @zeroth-ai/sdk-node` installs those until 0.1.1 is out. Versions are already bumped in the repo.
-- [ ] Publish in this order: `@zeroth-ai/sdk` 0.1.1, then `@zeroth-ai/sdk-node` 0.1.1, then `@zeroth-ai/sdk-web` 0.1.0 and `@zeroth-ai/sdk-react-native` 0.1.0.
+- [x] `@zeroth-ai/sdk` 0.1.1, `@zeroth-ai/sdk-node` 0.1.1, `@zeroth-ai/sdk-web` 0.1.0 and `@zeroth-ai/sdk-react-native` 0.1.0 are published.
 - [ ] Set up a second 2FA method on GitHub (GitHub is warning about SMS-only).
 
 ## Web runtime (`@zeroth-ai/sdk-web`)

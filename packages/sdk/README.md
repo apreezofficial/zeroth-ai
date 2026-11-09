@@ -62,6 +62,7 @@ npm run test  -w @zeroth-ai/sdk
 - [x] Hardware probe and model selection
 - [x] Resumable, checksum-verified model downloads
 - [x] Tool calling (driven by the engine)
-- [ ] In-browser engine (WebGPU)
-- [ ] Platform packages: Swift, Kotlin
-- [x] Publish-ready under the `@zeroth-ai` npm org (not yet published)
+- [x] In-browser engine (WebAssembly, preview): `@zeroth-ai/sdk-web`
+- [x] iOS and Android through React Native (preview): `@zeroth-ai/sdk-react-native`
+- [ ] Native Swift and Kotlin packages
+- [x] Published under the `@zeroth-ai` npm org

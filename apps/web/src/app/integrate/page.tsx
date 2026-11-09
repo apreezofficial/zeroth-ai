@@ -27,8 +27,7 @@ export default function IntegratePage() {
         <div className="mx-auto max-w-[1100px] px-6">
           <PlatformTabs />
           <p className="mt-8 text-[13px] leading-[1.6] text-black/55">
-            Available today: Desktop and Node on npm. Web (WebAssembly) and React Native for iOS and Android are previews in the repo, not published yet. Web has run a real model in a browser. Mobile passes its tests against a mock runtime and still needs a run on real phones.
-          </p>
+            All three runtimes are on npm. Desktop and Node are ready. Web (WebAssembly) and React Native for iOS and Android are previews: Web has run a real model in a browser, and mobile passes its tests against a mock runtime but still needs a run on real phones.</p>
         </div>
       </section>
       <section className="bg-white py-24">

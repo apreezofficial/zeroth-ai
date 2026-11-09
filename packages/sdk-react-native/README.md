@@ -2,7 +2,7 @@
 
 Zeroth for React Native on iOS and Android. Runs open-weight models on the phone with llama.cpp through [llama.rn](https://github.com/mybigday/llama.rn). Nothing is sent to a server after the model is downloaded.
 
-**Status: preview, not tested on a device.** The engine is complete and passes 16 tests against a mock `llama.rn` and a fake file system. It has **not been run on a real iPhone or Android phone yet**, and it is not published to npm. Treat the first device run as the real test.
+**Status: preview, not tested on a device.** The engine is complete and passes 16 tests against a mock `llama.rn` and a fake file system. It has **not been run on a real iPhone or Android phone yet**, and it is a preview on npm. Treat the first device run as the real test.
 
 ```tsx
 import { zeroth } from "@zeroth-ai/sdk-react-native"
