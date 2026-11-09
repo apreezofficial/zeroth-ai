@@ -1,5 +1,7 @@
 # @zeroth-ai/sdk
 
+[![sdk downloads per month](https://img.shields.io/npm/dm/@zeroth-ai/sdk?label=sdk%20downloads%2Fmonth&color=7b61ff)](https://www.npmjs.com/package/@zeroth-ai/sdk)
+
 Run a full AI model inside your app, on-device.
 
 > The core API, types, validation and `Engine` interface. On its own it has no runtime: `zeroth.load()` rejects with `ENGINE_UNAVAILABLE` until an engine is registered. Use [`@zeroth-ai/sdk-node`](../sdk-node/README.md) for a working Node/Electron runtime.

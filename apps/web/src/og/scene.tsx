@@ -219,7 +219,16 @@ export const contactScene: Block[] = [
   b(1, 0, 0, "teal"), b(2, 0, 0, "teal"),
 ];
 
+export const statsScene: Block[] = [
+  b(0, 0, 0, "teal"), b(0, 0, 1, "teal"),
+  b(1, 0, 0, "blue"), b(1, 0, 1, "blue"), b(1, 0, 2, "blue"), b(1, 0, 3, "blue"),
+  b(2, 0, 0, "purple"), b(2, 0, 1, "purple"), b(2, 0, 2, "purple"),
+  b(3, 0, 0, "indigo"), b(3, 0, 1, "indigo"), b(3, 0, 2, "indigo"), b(3, 0, 3, "indigo"), b(3, 0, 4, "indigo"), b(3, 0, 5, "indigo"),
+  b(4, 0, 0, "blue"), b(4, 0, 1, "blue"),
+];
+
 export const accents = {
+  stats: "#4141CC",
   home: "#7b61ff",
   product: "#3E7FF0",
   embed: "#31A8A6",

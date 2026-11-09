@@ -41,7 +41,7 @@ export function Download() {
 
 const cols = [
   ["Product", [["Overview", "/product"], ["Models", "/models"], ["Integrate", "/integrate"], ["Docs", "/docs"]]],
-  ["Company", [["About", "/about"], ["Customers", "/customers"], ["Contact", "/contact"]]],
+  ["Company", [["About", "/about"], ["Customers", "/customers"], ["Stats", "/stats"], ["Contact", "/contact"]]],
 ] as const;
 
 export function Footer() {

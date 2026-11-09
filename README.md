@@ -2,6 +2,8 @@
 
 On-device AI for any app. One SDK runs a full language model on the user's device: no servers, no API keys, no per-token bill.
 
+[![sdk-node downloads per month](https://img.shields.io/npm/dm/@zeroth-ai/sdk-node?label=sdk-node%20downloads%2Fmonth&color=7b61ff)](https://www.npmjs.com/package/@zeroth-ai/sdk-node) [![sdk downloads per month](https://img.shields.io/npm/dm/@zeroth-ai/sdk?label=sdk%20downloads%2Fmonth&color=7b61ff)](https://www.npmjs.com/package/@zeroth-ai/sdk)
+
 This repo is a small monorepo (npm workspaces).
 
 ```
@@ -16,6 +18,15 @@ zeroth/
 ├── tsconfig.base.json  shared TypeScript settings for packages
 └── package.json        workspace root and scripts
 ```
+
+## Downloads
+
+[![sdk-node downloads per month](https://img.shields.io/npm/dm/@zeroth-ai/sdk-node?label=sdk-node%20downloads%2Fmonth&color=7b61ff)](https://www.npmjs.com/package/@zeroth-ai/sdk-node)
+[![sdk downloads per month](https://img.shields.io/npm/dm/@zeroth-ai/sdk?label=sdk%20downloads%2Fmonth&color=7b61ff)](https://www.npmjs.com/package/@zeroth-ai/sdk)
+[![sdk-web downloads per month](https://img.shields.io/npm/dm/@zeroth-ai/sdk-web?label=sdk-web%20downloads%2Fmonth&color=7b61ff)](https://www.npmjs.com/package/@zeroth-ai/sdk-web)
+[![sdk-react-native downloads per month](https://img.shields.io/npm/dm/@zeroth-ai/sdk-react-native?label=sdk-react-native%20downloads%2Fmonth&color=7b61ff)](https://www.npmjs.com/package/@zeroth-ai/sdk-react-native)
+
+Counts are npm's own, updated live by shields.io. They include CI runs, bots and mirrors, and installing `sdk-node` also installs `sdk`, so don't add them together. A package shows "too new" until npm has counted it, usually within a day of publishing.
 
 ## Quick start
 

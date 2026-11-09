@@ -1,5 +1,7 @@
 # @zeroth-ai/sdk-web
 
+[![web downloads per month](https://img.shields.io/npm/dm/@zeroth-ai/sdk-web?label=web%20downloads%2Fmonth&color=7b61ff)](https://www.npmjs.com/package/@zeroth-ai/sdk-web)
+
 Zeroth in the browser. Runs open-weight models on the user's device with llama.cpp compiled to WebAssembly (through [wllama](https://github.com/ngxson/wllama)). Nothing is sent to a server after the model is downloaded.
 
 **Status: preview.** On npm as `@zeroth-ai/sdk-web`. It has loaded and run `lfm-1b` in a real browser tab: download, SHA-256 check, streaming, JSON output, and a reload from cache with no new download.

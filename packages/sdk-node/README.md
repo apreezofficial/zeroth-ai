@@ -1,5 +1,7 @@
 # @zeroth-ai/sdk-node
 
+[![node downloads per month](https://img.shields.io/npm/dm/@zeroth-ai/sdk-node?label=node%20downloads%2Fmonth&color=7b61ff)](https://www.npmjs.com/package/@zeroth-ai/sdk-node)
+
 Run AI models on the user's machine from Node, Electron or a Tauri sidecar. Powered by [llama.cpp](https://github.com/ggml-org/llama.cpp) through [node-llama-cpp](https://node-llama-cpp.withcat.ai), with Metal, CUDA, Vulkan and CPU backends.
 
 After the first model download, nothing touches the network.
