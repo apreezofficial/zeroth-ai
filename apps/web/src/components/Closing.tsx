@@ -7,11 +7,11 @@ export function Testimonial() {
     <section className="mx-auto max-w-[1000px] px-6 py-32 text-center">
       <Reveal>
         <p className="text-[clamp(26px,3.6vw,40px)] font-semibold leading-[1.2] tracking-[-0.03em]">
-          “This magical product actually works! We added Zeroth to our notes app in an
-          afternoon. Summaries now run on-device, on a plane, with zero backend cost.”
+          “At DRER, getting prompts and instructions to work offline was a hassle until Zeroth
+          came in. Chat and actions now run on-device, with nothing sent to a server.”
         </p>
-        <div className="mt-10 font-semibold">Maya Okafor</div>
-        <div className="text-black/55">Head of Engineering, Hushline</div>
+        <div className="mt-10 font-semibold">Head of Engineering</div>
+        <div className="text-black/55">Aura OS</div>
       </Reveal>
     </section>
   );
