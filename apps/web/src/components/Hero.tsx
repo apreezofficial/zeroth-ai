@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Block } from "./Blocks";
 import { ScrollBlocks } from "./ScrollBlocks";
 import { Button } from "./ui";
+import { CopyCommand } from "./CopyCommand";
 
 type C = Block["c"];
 const b = (i: number, j: number, k: number, c: C): Block => ({ i, j, k, c });
@@ -49,7 +50,10 @@ export function Hero() {
         Embed a full AI model directly inside any app. It runs 100% on the user’s device through
         one simple SDK. No servers, no API keys, no data leaving the phone.
       </p>
-      <div className="relative mt-10 flex flex-col items-stretch gap-3 sm:flex-row sm:justify-center md:mt-12">
+      <div className="relative mt-8 flex justify-center md:mt-10">
+        <CopyCommand command="npm i @zeroth-ai/sdk-node" />
+      </div>
+      <div className="relative mt-6 flex flex-col items-stretch gap-3 sm:flex-row sm:justify-center md:mt-8">
         <Button href="/docs" className="sm:min-w-[210px]">Read the docs</Button>
         <Link href="/product" className="inline-flex items-center justify-center px-5 py-4 text-[15px] font-semibold underline-offset-4 hover:underline">
           See how it works →
