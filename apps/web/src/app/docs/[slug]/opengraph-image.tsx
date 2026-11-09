@@ -4,6 +4,7 @@ import { docs, bySlug } from "@/lib/docs";
 
 export const size = OG_SIZE;
 export const contentType = "image/png";
+export const alt = "Zeroth documentation page";
 
 export function generateStaticParams() {
   return docs.map((d) => ({ slug: d.slug }));

@@ -12,6 +12,9 @@ const grotesk = Hanken_Grotesk({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://zeroth.pxxl.dev"),
+  alternates: { canonical: "./" },
+  openGraph: { type: "website", siteName: "Zeroth", url: "./", locale: "en_US" },
+  twitter: { card: "summary_large_image" },
   title: "Zeroth — AI that runs fully offline",
   description:
     "Run open-weight AI models inside your app, on the device. Install from npm, download a model once, then chat, get schema-checked JSON and call tools with no server, no API key and no per-token bill.",

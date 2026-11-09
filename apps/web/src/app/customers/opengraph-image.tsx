@@ -3,6 +3,7 @@ import { Frame, OG_SIZE, customersScene, accents } from "@/og/scene";
 
 export const size = OG_SIZE;
 export const contentType = "image/png";
+export const alt = "What gets built with Zeroth";
 
 export default function Image() {
   return new ImageResponse(

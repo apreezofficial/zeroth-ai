@@ -4,6 +4,7 @@ import { features } from "@/lib/content";
 
 export const size = OG_SIZE;
 export const contentType = "image/png";
+export const alt = "Zeroth product feature";
 
 const scenes = { embed: embedScene, adapt: adaptScene, ship: shipScene } as const;
 

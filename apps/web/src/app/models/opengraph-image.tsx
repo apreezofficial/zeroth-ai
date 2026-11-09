@@ -3,6 +3,7 @@ import { Frame, OG_SIZE, modelsScene, accents } from "@/og/scene";
 
 export const size = OG_SIZE;
 export const contentType = "image/png";
+export const alt = "Zeroth models: four 2026 open-weight models from 0.7 to 3.4 GB";
 
 export default function Image() {
   return new ImageResponse(

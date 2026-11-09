@@ -3,6 +3,7 @@ import { Frame, OG_SIZE, aboutScene, accents } from "@/og/scene";
 
 export const size = OG_SIZE;
 export const contentType = "image/png";
+export const alt = "About Zeroth: private AI by default";
 
 export default function Image() {
   return new ImageResponse(

@@ -3,6 +3,7 @@ import { Frame, OG_SIZE, contactScene, accents } from "@/og/scene";
 
 export const size = OG_SIZE;
 export const contentType = "image/png";
+export const alt = "Contact the Zeroth team";
 
 export default function Image() {
   return new ImageResponse(

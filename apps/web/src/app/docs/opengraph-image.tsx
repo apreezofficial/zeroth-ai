@@ -3,6 +3,7 @@ import { Frame, OG_SIZE, docsHomeScene, accents } from "@/og/scene";
 
 export const size = OG_SIZE;
 export const contentType = "image/png";
+export const alt = "Zeroth documentation";
 
 export default function Image() {
   return new ImageResponse(
