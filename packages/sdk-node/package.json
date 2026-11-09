@@ -1,6 +1,6 @@
 {
   "name": "@zeroth-ai/sdk-node",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Zeroth for Node, Electron and Tauri sidecars: runs models locally with llama.cpp (Metal, CUDA, Vulkan, CPU).",
   "keywords": [
     "ai",
@@ -34,7 +34,7 @@
     "prepublishOnly": "npm run build && npm test"
   },
   "dependencies": {
-    "@zeroth-ai/sdk": "^0.1.0",
+    "@zeroth-ai/sdk": "^0.1.1",
     "node-llama-cpp": "^3.22.3"
   },
   "devDependencies": {

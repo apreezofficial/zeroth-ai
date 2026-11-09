@@ -1,0 +1,71 @@
+{
+  "name": "@zeroth-ai/sdk-react-native",
+  "version": "0.1.0",
+  "description": "Zeroth for React Native on iOS and Android: runs models on-device with llama.cpp through llama.rn.",
+  "keywords": [
+    "ai",
+    "llm",
+    "react-native",
+    "ios",
+    "android",
+    "llama.cpp",
+    "on-device",
+    "offline",
+    "local-first"
+  ],
+  "type": "module",
+  "sideEffects": true,
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "!dist/**/*.test.*"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "tsc -p tsconfig.json && node --test \"dist/**/*.test.js\"",
+    "prepublishOnly": "npm run build && npm test"
+  },
+  "dependencies": {
+    "@zeroth-ai/sdk": "^0.1.1"
+  },
+  "peerDependencies": {
+    "llama.rn": ">=0.13.0-rc.9",
+    "react-native": "*",
+    "react-native-fs": ">=2.20.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ai-zeroth/zeroth.git",
+    "directory": "packages/sdk-react-native"
+  },
+  "homepage": "https://github.com/ai-zeroth/zeroth#readme",
+  "bugs": {
+    "url": "https://github.com/ai-zeroth/zeroth/issues"
+  },
+  "author": "apreezofficial",
+  "peerDependenciesMeta": {
+    "llama.rn": {
+      "optional": true
+    },
+    "react-native": {
+      "optional": true
+    },
+    "react-native-fs": {
+      "optional": true
+    }
+  }
+}

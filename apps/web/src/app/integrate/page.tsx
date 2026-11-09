@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 };
 
 const steps = [
-  ["Add the package", "Install the npm package today. Swift and Gradle packages are in development."],
+  ["Add the package", "One npm package per runtime: Node and Desktop today, Web and React Native in preview."],
   ["Load once", "Call load(). The first launch downloads a model, every launch after is instant."],
   ["Call anywhere", "Use chat(), json() and tools() from anywhere in your app. Nothing leaves the device."],
 ];
@@ -27,7 +27,7 @@ export default function IntegratePage() {
         <div className="mx-auto max-w-[1100px] px-6">
           <PlatformTabs />
           <p className="mt-8 text-[13px] leading-[1.6] text-black/55">
-            Available today: Desktop and Node. iOS, Android and in-browser runtimes are in development, and the snippets above show the API they will expose.
+            Available today: Desktop and Node on npm. Web (WebAssembly) and React Native for iOS and Android are previews in the repo, not published yet. Web has run a real model in a browser. Mobile passes its tests against a mock runtime and still needs a run on real phones.
           </p>
         </div>
       </section>

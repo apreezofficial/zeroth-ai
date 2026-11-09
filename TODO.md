@@ -1,6 +1,6 @@
 # Zeroth to-do
 
-Last updated: 2026-11-09
+Last updated: 2026-11-09 (web and React Native previews added)
 
 ## ze-code (dev-only code model)
 
@@ -30,11 +30,37 @@ Status: planning. Nothing downloaded or installed for training yet.
 
 ## Repo cleanup
 
-- [ ] Decide on the uncommitted `package.json` and `package-lock.json` at the repo root. An earlier install added hundreds of unrelated dependencies and a `main` field. Revert them unless there is a reason to keep them.
+- [x] Root `package.json` and lockfile cleaned: the stray dependencies from an earlier install were reverted (a copy is kept outside the repo).
 
 ## Website and docs
 
 - [ ] Replace the placeholder customers and quotes on `/customers`.
 - [ ] Build the "What it can do" page with real recorded examples.
 - [ ] Build a terminal-style demo panel using real recordings.
-- [ ] Browser WebGPU engine for the in-page playground (not started).
+- [ ] In-page playground on the site that runs `lfm-1b` in the visitor's browser with `@zeroth-ai/sdk-web` (the engine works; the page needs the wasm file hosted and a download-size warning).
+
+## Publishing (needs the npm owner)
+
+- [ ] **The published 0.1.0 packages still have the old model catalogue** (Llama 3.x, Qwen2.5). `npm i @zeroth-ai/sdk-node` installs those until 0.1.1 is out. Versions are already bumped in the repo.
+- [ ] Publish in this order: `@zeroth-ai/sdk` 0.1.1, then `@zeroth-ai/sdk-node` 0.1.1, then `@zeroth-ai/sdk-web` 0.1.0 and `@zeroth-ai/sdk-react-native` 0.1.0.
+- [ ] Set up a second 2FA method on GitHub (GitHub is warning about SMS-only).
+
+## Web runtime (`@zeroth-ai/sdk-web`)
+
+- [x] Engine, verified downloads, Cache Storage, JSON and tools, 16 unit tests.
+- [x] Real-browser run of `lfm-1b`: load, answer, JSON output, offline reload from cache (2.0 s, no new download).
+- [ ] Browser-test `lfm3-1.7b`, and measure real tokens per second on the Mac and on a phone browser.
+- [ ] Support `granite-3b` and `gemma-e2b` by splitting the GGUF into shards under 2 GB.
+- [ ] Resume interrupted downloads (currently restarts).
+
+## React Native runtime (`@zeroth-ai/sdk-react-native`)
+
+- [x] Engine, verified downloads, JSON and tools, 16 unit tests against a mock `llama.rn`.
+- [ ] **Run it on a real iPhone and Android phone.** It has never run on a device.
+- [ ] Resume interrupted downloads (currently restarts).
+- [ ] Add an example app in `apps/` that exercises load, chat and JSON on a device.
+
+## Shared
+
+- [ ] Move the model table (ids, URLs, hashes, sizes) into one shared package. It is copied into `sdk-node`, `sdk-web` and `sdk-react-native` today.
+- [ ] Find a 2026 embedding model so `embed()` works on every runtime.

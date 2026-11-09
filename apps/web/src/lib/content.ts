@@ -77,23 +77,23 @@ console.log(ai.model.name) // "granite-3b-q4"`,
     lead: "Write your AI feature once. The same calls run on iOS, Android, Web and Desktop, so every user gets private AI with zero backend for you to operate.",
     icon: [b(0, 0, 0, "teal"), b(1, 0, 0, "blue"), b(0, 1, 0, "teal"), b(0, 0, 1, "indigo"), b(1, 0, 1, "teal"), b(0, 0, 2, "blue")],
     steps: [
-      { t: "Add the package", b: "Swift Package, Gradle artifact, npm module or native desktop library." },
-      { t: "Wire one call", b: "Use the identical chat() and embed() signatures on every platform." },
+      { t: "Add the package", b: "One npm package per runtime: Node and Desktop, Web, and React Native for iOS and Android." },
+      { t: "Wire one call", b: "Use the same chat(), json() and tools() calls on every runtime." },
       { t: "Release", b: "No servers to scale. Your AI feature costs the same at ten users or ten million." },
     ],
-    file: "App.swift",
-    code: `import Zeroth
+    file: "App.tsx",
+    code: `import { zeroth } from "@zeroth-ai/sdk-react-native"
 
-let ai = try await Zeroth.load(.auto)
+const ai = await zeroth.load("auto")
 
-for try await token in ai.chat("Plan my day") {
-    text += token
+for await (const token of ai.chat("Plan my day")) {
+  setText((t) => t + token)
 }`,
     points: [
-      { t: "Native on mobile", b: "Swift and Kotlin packages with first-class async APIs." },
-      { t: "In the browser", b: "WebGPU runtime with a WASM fallback, no extensions needed." },
-      { t: "Desktop ready", b: "Electron, Tauri and native bindings share the same engine." },
-      { t: "Small footprint", b: "The runtime adds a few megabytes. Models download on demand." },
+      { t: "iOS and Android", b: "A React Native package on llama.cpp. In preview, not yet tested on a device." },
+      { t: "In the browser", b: "llama.cpp on WebAssembly. Runs a real model in a tab today, in preview." },
+      { t: "Desktop ready", b: "Node, Electron and Tauri sidecars share one engine. Available on npm." },
+      { t: "Models download once", b: "0.7 to 3.4 GB, verified by SHA-256, then cached for offline use." },
     ],
     next: "embed",
   },
@@ -109,38 +109,13 @@ export const models = [
 
 export const platforms = [
   {
-    id: "ios",
-    label: "iOS",
-    file: "App.swift",
-    install: `In development. Not published yet.`,
-    available: false,
-    code: `import Zeroth
-
-let ai = try await Zeroth.load(.auto)
-
-for try await token in ai.chat("Summarise this note") {
-    summary += token
-}`,
-  },
-  {
-    id: "android",
-    label: "Android",
-    file: "MainActivity.kt",
-    install: `In development. Not published yet.`,
-    available: false,
-    code: `val ai = Zeroth.load(ModelChoice.Auto)
-
-ai.chat("Summarise this note").collect { token ->
-    summary += token
-}`,
-  },
-  {
     id: "web",
     label: "Web",
     file: "app.ts",
-    install: `In development. Not published yet.`,
-    available: false,
-    code: `import { zeroth } from "@zeroth-ai/sdk"
+    status: "preview",
+    install: `Preview: in the repo, not on npm yet.`,
+    note: "Web runs llama.cpp on WebAssembly. It has loaded and run a real model in a browser. Models over 2 GB (granite-3b, gemma-e2b) are Node and Desktop only for now.",
+    code: `import { zeroth } from "@zeroth-ai/sdk-web"
 
 const ai = await zeroth.load("auto")
 
@@ -149,11 +124,27 @@ for await (const token of ai.chat("Summarise this note")) {
 }`,
   },
   {
+    id: "mobile",
+    label: "iOS · Android",
+    file: "App.tsx",
+    status: "preview",
+    install: `Preview: in the repo, not on npm yet.`,
+    note: "iOS and Android use React Native with llama.rn. The engine passes its tests against a mock runtime and has not run on a real phone yet.",
+    code: `import { zeroth } from "@zeroth-ai/sdk-react-native"
+
+const ai = await zeroth.load("auto")
+
+for await (const token of ai.chat("Summarise this note")) {
+  setSummary((s) => s + token)
+}`,
+  },
+  {
     id: "desktop",
     label: "Desktop",
     file: "main.ts",
+    status: "available",
     install: `npm i @zeroth-ai/sdk-node`,
-    available: true,
+    note: "",
     code: `import { zeroth } from "@zeroth-ai/sdk-node"
 
 const ai = await zeroth.load({ prefer: "quality" })

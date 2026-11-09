@@ -1,0 +1,55 @@
+{
+  "name": "@zeroth-ai/sdk-web",
+  "version": "0.1.0",
+  "description": "Zeroth for the browser: runs models on-device with llama.cpp compiled to WebAssembly.",
+  "keywords": [
+    "ai",
+    "llm",
+    "wasm",
+    "webassembly",
+    "browser",
+    "on-device",
+    "offline",
+    "local-first"
+  ],
+  "type": "module",
+  "sideEffects": true,
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "!dist/**/*.test.*"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "tsc -p tsconfig.json && node --test \"dist/**/*.test.js\"",
+    "prepublishOnly": "npm run build && npm test"
+  },
+  "dependencies": {
+    "@wllama/wllama": "^3.13.0",
+    "@zeroth-ai/sdk": "^0.1.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ai-zeroth/zeroth.git",
+    "directory": "packages/sdk-web"
+  },
+  "homepage": "https://github.com/ai-zeroth/zeroth#readme",
+  "bugs": {
+    "url": "https://github.com/ai-zeroth/zeroth/issues"
+  },
+  "author": "apreezofficial"
+}

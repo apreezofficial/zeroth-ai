@@ -1,6 +1,6 @@
 {
   "name": "@zeroth-ai/sdk",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Run a full AI model inside your app, on-device. No servers, no keys, no per-token bill.",
   "keywords": [
     "ai",

@@ -114,7 +114,7 @@ function ModelsMock() {
 
 function IntegrateMock() {
   const apps = [
-    ["Notes app", "iOS · Swift"],
+    ["Notes app", "iOS · React Native"],
     ["CRM desktop", "Electron"],
     ["Helpdesk web", "WASM"],
   ];

@@ -66,14 +66,12 @@ export function PlatformTabs() {
         <div className={`${card} min-w-0 p-6`}>
           <div className="text-[11px] font-semibold tracking-[0.12em] text-black/50">1 · INSTALL</div>
           <code className="mt-4 block break-all bg-gray p-4 font-mono text-[13px]">{p.install}</code>
-          {!p.available && (
-            <p className="mt-3 text-[13px] text-black/60">The snippet on the right shows the API this runtime will expose.</p>
-          )}
+          {p.status !== "available" && <p className="mt-3 text-[13px] leading-[1.5] text-black/60">{p.note}</p>}
           <div className="mt-8 text-[11px] font-semibold tracking-[0.12em] text-black/50">REQUIREMENTS</div>
           <ul className="mt-3 space-y-2 text-[14px] text-black/75">
-            <li>• Node 20.11 or newer</li>
             <li>• Model downloads once (0.7 to 3.4 GB), then runs offline</li>
             <li>• About 1.4 to 4.7 GB of memory, depending on the model</li>
+            <li>• {p.id === "desktop" ? "Node 20.11 or newer" : p.id === "web" ? "A browser with WebAssembly SIMD" : "React Native with llama.rn and react-native-fs"}</li>
           </ul>
         </div>
         <div className="min-w-0">

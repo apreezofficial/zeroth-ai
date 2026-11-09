@@ -9,8 +9,8 @@ const faq: [string, string][] = [
   ["Does it need the internet?", "Only once per model, to download it. After that every call runs on the device with no network access."],
   ["Do I need an API key or an account?", "No. There is nothing to sign up for and nothing to authenticate. The SDK talks to no Zeroth server."],
   ["Is user data sent anywhere?", "No. Prompts, files and outputs stay in your process. The only network request the SDK ever makes is the model download."],
-  ["Which platforms work today?", "Node and desktop apps (Electron, Tauri sidecars) on macOS, Linux and Windows. iOS, Android and in-browser runtimes are in development."],
-  ["Which models does it run?", "Open-weight models in GGUF form: Llama 3.2 (1B, 3B), Llama 3.1 8B and Qwen2.5 32B for chat, plus nomic-embed-text for embeddings. See Models and licences."],
+  ["Which platforms work today?", "Node and desktop apps (Electron, Tauri sidecars) work today. A browser runtime (WebAssembly) and a React Native runtime for iOS and Android are previews in the repo, not on npm yet."],
+  ["Which models does it run?", "Open-weight models in GGUF form: LFM2.5 1.2B, LFM3 1.7B, Granite 4.2 3B and Gemma 4 E2B. There is no embedding model yet. See Models and licences."],
   ["Can I ship it in a commercial product?", "The SDK code is yours to license. Each model carries its own upstream licence, so read it before you ship. We list them on the models page."],
   ["How much memory does it need?", "About 1.4 GB for lfm-1b and 3.3 GB for granite-3b. Zeroth checks your machine and will not auto-pick a model that does not fit."],
 ];
@@ -43,8 +43,10 @@ for await (const token of ai.chat("Plan my day")) {
       <H2 id="status">What works today</H2>
       <Callout type="note" title="Status">
         <p>
-          The <strong>Node and desktop runtime works</strong> and is what this documentation covers. iOS, Android and in-browser runtimes
-          are <strong>in development</strong>. The packages are not on npm yet, so you build them from the repo for now.
+          The <strong>Node and desktop runtime works</strong> and is on npm as <code>@zeroth-ai/sdk-node</code>. This documentation covers it.
+          A browser runtime (<code>@zeroth-ai/sdk-web</code>, WebAssembly) and a React Native runtime for iOS and Android
+          (<code>@zeroth-ai/sdk-react-native</code>) are <strong>previews</strong> in the repo and not on npm yet. The browser runtime has
+          run a real model in a browser. The mobile one passes its tests against a mock runtime and has not run on a real phone yet.
         </p>
       </Callout>
       <ul>
@@ -68,7 +70,7 @@ for await (const token of ai.chat("Plan my day")) {
       </ul>
 
       <H2 id="from-the-repo">Install from the repo</H2>
-      <p>The packages are not published to npm yet. Clone the repository and build it.</p>
+      <p>The Node package is on npm: <code>npm i @zeroth-ai/sdk-node</code>. To use the web and React Native previews, or to work on Zeroth itself, clone the repository and build it.</p>
       {code(`git clone https://github.com/ai-zeroth/zeroth.git
 cd zeroth
 npm install
