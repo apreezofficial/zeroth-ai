@@ -20,7 +20,7 @@ export default function ModelsPage() {
     <>
       <PageHero
         title={<>The right brain<br />for every device.</>}
-        sub="Open-weight models from 137M to 32B parameters, quantised to 4-bit so they stay small and fast. Five run today; vision is on the way."
+        sub="Open-weight models from 1.2B to 3.4B on disk, quantised to 4-bit so they stay small and fast. Four run today; ze-code is in development."
       />
       <section className="bg-gray py-20">
         <div className="mx-auto max-w-[1200px] px-6"><ModelsExplorer /></div>
@@ -39,7 +39,7 @@ export default function ModelsPage() {
               </Reveal>
             ))}
           </div>
-          <p className="mt-10 max-w-[620px] text-[13px] leading-[1.6] text-black/50">Sizes and speeds are indicative targets for 4-bit builds on current hardware and will be replaced with measured benchmarks at release.</p>
+          <p className="mt-10 max-w-[620px] text-[13px] leading-[1.6] text-black/50">Speeds are figures reported by others or estimates from public sources, not Zeroth benchmarks. They vary by device, quantisation and context length.</p>
         </div>
       </section>
       <CTABand title="Pick a model, or let Zeroth pick one for you." />

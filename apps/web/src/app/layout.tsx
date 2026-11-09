@@ -11,6 +11,7 @@ const grotesk = Hanken_Grotesk({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://zeroth.pxxl.dev"),
   title: "Zeroth — AI that runs fully offline",
   description:
     "Zeroth is an offline AI SDK. Embed a full AI model in any app, running 100% on-device with no servers and no data leaving the user’s device.",
