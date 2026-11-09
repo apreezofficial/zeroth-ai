@@ -10,7 +10,7 @@ export default function Image() {
       <Frame
         eyebrow="About"
         title="Private AI, by default."
-        body="We build the runtime that lets apps think on the device, so user data never has to leave it."
+        body="We build the runtime that lets apps run AI on the device, so prompts and user data never reach a server."
         blocks={aboutScene}
         accent={accents.about}
       />

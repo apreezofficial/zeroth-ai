@@ -6,7 +6,7 @@ import { card } from "@/components/styles";
 
 export const metadata: Metadata = {
   title: "Models — Zeroth",
-  description: "From 1B to 32B parameters, Zeroth models are quantised to run on phones, laptops and workstations.",
+  description: "Four 2026 open-weight models, 0.7 to 3.4 GB, quantised to 4-bit and verified by SHA-256. Compare size, memory needs and reported speeds before you ship one.",
 };
 
 const how = [

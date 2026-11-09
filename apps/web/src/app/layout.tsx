@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://zeroth.pxxl.dev"),
   title: "Zeroth — AI that runs fully offline",
   description:
-    "Zeroth is an offline AI SDK. Embed a full AI model in any app, running 100% on-device with no servers and no data leaving the user’s device.",
+    "Run open-weight AI models inside your app, on the device. Install from npm, download a model once, then chat, get schema-checked JSON and call tools with no server, no API key and no per-token bill.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

@@ -9,8 +9,8 @@ export default function Image() {
     (
       <Frame
         eyebrow="Models"
-        title="Open-weight models, on device."
-        body="Small 2026 models from 1.2B to 3B, quantised to 4-bit and checked against their published hashes."
+        title="Open models, on device."
+        body="Four 2026 models, 0.7 to 3.4 GB, 4-bit and SHA-256 verified. Sizes, memory and reported speeds."
         blocks={modelsScene}
         accent={accents.models}
       />

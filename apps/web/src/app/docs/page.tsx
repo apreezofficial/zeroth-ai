@@ -5,7 +5,7 @@ import { docs, groups } from "@/lib/docs";
 
 export const metadata: Metadata = {
   title: "Docs — Zeroth",
-  description: "Install the Zeroth SDK, load a model and stream tokens on-device in minutes.",
+  description: "Install the SDK, load a model, stream replies and get JSON back. Guides for tools, offline use, the CLI and every error code.",
 };
 
 export default function DocsHome() {

@@ -10,7 +10,7 @@ export default function Image() {
       <Frame
         eyebrow="Contact"
         title="Talk to the team."
-        body="Questions about the SDK, models or a launch? Send us a note."
+        body="Questions about the SDK, the models or shipping on-device AI? Message the team."
         blocks={contactScene}
         accent={accents.contact}
       />

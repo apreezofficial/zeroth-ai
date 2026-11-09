@@ -3,7 +3,7 @@ import { CTABand, PageHero } from "@/components/PageParts";
 import { Reveal } from "@/components/ui";
 import { card } from "@/components/styles";
 
-export const metadata: Metadata = { title: "About — Zeroth", description: "Why we’re building AI that runs where you are, with no cloud." };
+export const metadata: Metadata = { title: "About — Zeroth", description: "We build the runtime that lets apps run AI on the device, so prompts and user data never have to reach a server." };
 
 const values = [
   ["Private by design", "If data never leaves the device, it can’t be breached, sold or subpoenaed from us."],

@@ -76,7 +76,7 @@ export function Frame({
       </div>
 
       {/* Copy */}
-      <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", paddingLeft: 72, paddingTop: 80, width: 520 }}>
+      <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", paddingLeft: 72, paddingTop: 70, paddingBottom: 110, width: 520 }}>
         <div
           style={{
             display: "flex",
@@ -93,7 +93,7 @@ export function Frame({
         >
           {eyebrow}
         </div>
-        <div style={{ display: "flex", marginTop: 26, fontSize: 64, fontWeight: 800, lineHeight: 1.04, letterSpacing: -2 }}>{title}</div>
+        <div style={{ display: "flex", marginTop: 26, fontSize: 60, fontWeight: 800, lineHeight: 1.04, letterSpacing: -2 }}>{title}</div>
         <div style={{ display: "flex", marginTop: 26, fontSize: 24, lineHeight: 1.4, color: "rgba(11,11,18,0.72)" }}>{body}</div>
       </div>
 

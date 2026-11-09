@@ -10,7 +10,7 @@ export default function Image() {
       <Frame
         eyebrow="Integrate"
         title="Plug in one SDK."
-        body="Install a package, load a model, and stream a reply. The same calls on web, mobile and desktop."
+        body="npm i @zeroth-ai/sdk-node, call zeroth.load(), stream your first on-device reply."
         blocks={integrateScene}
         accent={accents.integrate}
       />

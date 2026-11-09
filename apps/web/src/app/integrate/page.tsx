@@ -7,7 +7,7 @@ import { works } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Integrate — Zeroth",
-  description: "One API for iOS, Android, Web and Desktop. Add on-device AI to your existing app in minutes.",
+  description: "Install @zeroth-ai/sdk-node, call zeroth.load() and stream your first on-device reply in a few lines. Same chat, json and tools calls throughout.",
 };
 
 const steps = [

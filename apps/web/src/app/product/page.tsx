@@ -8,7 +8,7 @@ import { features, works } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Product — Zeroth",
-  description: "Embed, adapt and ship a full AI model inside any app. It runs on-device with one SDK.",
+  description: "One SDK that loads an open-weight model on the user’s device, streams replies, returns schema-checked JSON and calls your tools. No server, no API key, no per-token bill.",
 };
 
 export default function ProductPage() {

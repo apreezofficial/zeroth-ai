@@ -10,7 +10,7 @@ export default function Image() {
       <Frame
         eyebrow="Documentation"
         title="Build with Zeroth."
-        body="Guides, API reference and the CLI for running models fully offline."
+        body="Load a model, stream replies, get JSON, call tools. Guides, CLI and every error code."
         blocks={docsHomeScene}
         accent={accents.docs}
       />

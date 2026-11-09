@@ -11,7 +11,7 @@ export default function Image() {
       <Frame
         eyebrow="Product"
         title="Embed. Adapt. Ship."
-        body="One SDK that runs a full model on the device, sizes it to the hardware, and works the same on every platform."
+        body="Stream replies, get schema-checked JSON and call your tools, all from a model on the user’s device."
         blocks={productScene}
         accent={accents.product}
       />

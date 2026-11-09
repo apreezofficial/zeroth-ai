@@ -4,7 +4,7 @@ import { Button, Reveal } from "@/components/ui";
 import { CTABand } from "@/components/PageParts";
 import { purpleCard } from "@/components/styles";
 
-export const metadata: Metadata = { title: "Customers — Zeroth", description: "Teams shipping private, offline AI with Zeroth." };
+export const metadata: Metadata = { title: "Customers — Zeroth", description: "See what gets built with Zeroth, including DRER, a macOS assistant whose chat and actions run fully on-device." };
 
 const quotes = [
   ["“We added Zeroth to our notes app in an afternoon. Summaries now run on-device, on a plane, with zero backend cost.”", "Maya Okafor", "Head of Engineering, Hushline"],

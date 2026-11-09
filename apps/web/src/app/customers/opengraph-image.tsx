@@ -10,7 +10,7 @@ export default function Image() {
       <Frame
         eyebrow="Customers"
         title="Apps that run offline."
-        body="Teams shipping private AI features on phones, laptops and the web."
+        body="See what gets built with Zeroth, including DRER, a macOS assistant that runs fully on-device."
         blocks={customersScene}
         accent={accents.customers}
       />

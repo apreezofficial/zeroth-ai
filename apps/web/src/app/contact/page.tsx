@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { ContactForm } from "@/components/Forms";
 
-export const metadata: Metadata = { title: "Contact — Zeroth", description: "Talk to the Zeroth team about sales, support or anything else." };
+export const metadata: Metadata = { title: "Contact — Zeroth", description: "Questions about the SDK, the models or shipping on-device AI? Message the Zeroth team." };
 
 export default function ContactPage() {
   return (

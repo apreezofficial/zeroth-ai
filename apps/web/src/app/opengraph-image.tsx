@@ -11,7 +11,7 @@ export default function Image() {
       <Frame
         eyebrow="Offline AI SDK"
         title="Unlimited AI. Zero internet."
-        body="Run open-weight models on the device. No servers, no API keys, no data leaving the phone."
+        body="Install from npm, download a model once, then chat, get JSON and call tools. No server, no API key."
         blocks={pipeScene}
         accent={accents.home}
         artWidth={560}
