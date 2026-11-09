@@ -167,7 +167,7 @@ const rows: {
   {
     id: "models",
     title: "Right-size the model for every device.",
-    body: "Zeroth picks from 1B to 32B parameter models based on the hardware it finds, then caches it locally. Download once, offline forever.",
+    body: "Zeroth picks from 1B to 3B parameter models based on the hardware it finds, then caches it locally. Download once, offline forever.",
     visual: <ModelsMock />,
   },
   {

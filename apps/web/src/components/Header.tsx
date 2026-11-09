@@ -17,7 +17,7 @@ const features: { title: string; body: string; icon: Block[]; href: string }[] =
   {
     title: "Adapt",
     href: "/product/adapt",
-    body: "Picks a 1B to 32B model for each device’s hardware and caches it locally.",
+    body: "Picks the largest 1B to 3B model that fits each device’s hardware and caches it locally.",
     icon: [b(0, 0, 0, "white"), b(1, 0, 0, "white"), b(0, 0, 1, "white"), b(1, 0, 1, "purple"), b(0, 0, 2, "purple"), b(1, 0, 2, "white")],
   },
   {
@@ -82,7 +82,7 @@ export function Header() {
     <>
       {banner && (
         <div className="relative z-40 bg-accent px-10 py-3 text-center text-[14px] font-medium text-white">
-          ⚡ Zeroth SDK 1.0 is stable — iOS, Android, Web & Desktop. Ship offline AI today. ⚡
+          ⚡ Zeroth SDK 0.1 is on npm — Node and Desktop today. iOS, Android and Web are in development. ⚡
           <button
             onClick={() => setBanner(false)}
             aria-label="Dismiss"

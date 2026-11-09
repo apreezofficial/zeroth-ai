@@ -47,7 +47,7 @@ for await (const token of ai.chat("Summarise my notes")) {
     slug: "adapt",
     tag: "ADAPT",
     title: "Right-size the model for every device.",
-    lead: "A flagship laptop and a three-year-old phone should not run the same model. Zeroth reads the hardware, picks the best fit from 1B to 32B parameters, and caches it locally.",
+    lead: "A flagship laptop and a three-year-old phone should not run the same model. Zeroth reads the hardware, picks the best fit from 1B to 3B parameters, and caches it locally.",
     icon: [b(0, 0, 0, "indigo"), b(1, 0, 0, "purple"), b(0, 0, 1, "purple"), b(1, 0, 1, "blue"), b(0, 0, 2, "teal"), b(1, 0, 2, "purple")],
     steps: [
       { t: "Probe", b: "On first launch we measure memory, GPU and NPU support in a few milliseconds." },
@@ -112,7 +112,8 @@ export const platforms = [
     id: "ios",
     label: "iOS",
     file: "App.swift",
-    install: `.package(url: "https://github.com/zeroth-ai/zeroth-swift", from: "1.0.0")`,
+    install: `In development. Not published yet.`,
+    available: false,
     code: `import Zeroth
 
 let ai = try await Zeroth.load(.auto)
@@ -125,7 +126,8 @@ for try await token in ai.chat("Summarise this note") {
     id: "android",
     label: "Android",
     file: "MainActivity.kt",
-    install: `implementation("ai.zeroth:sdk:1.0.0")`,
+    install: `In development. Not published yet.`,
+    available: false,
     code: `val ai = Zeroth.load(ModelChoice.Auto)
 
 ai.chat("Summarise this note").collect { token ->
@@ -136,7 +138,8 @@ ai.chat("Summarise this note").collect { token ->
     id: "web",
     label: "Web",
     file: "app.ts",
-    install: `npm i @zeroth-ai/sdk`,
+    install: `In development. Not published yet.`,
+    available: false,
     code: `import { zeroth } from "@zeroth-ai/sdk"
 
 const ai = await zeroth.load("auto")
@@ -150,6 +153,7 @@ for await (const token of ai.chat("Summarise this note")) {
     label: "Desktop",
     file: "main.ts",
     install: `npm i @zeroth-ai/sdk-node`,
+    available: true,
     code: `import { zeroth } from "@zeroth-ai/sdk-node"
 
 const ai = await zeroth.load({ prefer: "quality" })

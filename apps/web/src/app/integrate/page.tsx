@@ -11,9 +11,9 @@ export const metadata: Metadata = {
 };
 
 const steps = [
-  ["Add the package", "Use the Swift Package, Gradle artifact or npm module for your platform."],
+  ["Add the package", "Install the npm package today. Swift and Gradle packages are in development."],
   ["Load once", "Call load(). The first launch downloads a model, every launch after is instant."],
-  ["Call anywhere", "Use chat(), embed() and tools() from any screen, with no network permission."],
+  ["Call anywhere", "Use chat(), json() and tools() from anywhere in your app. Nothing leaves the device."],
 ];
 
 export default function IntegratePage() {
