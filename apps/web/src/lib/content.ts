@@ -100,10 +100,11 @@ for try await token in ai.chat("Plan my day") {
 ];
 
 export const models = [
-  { id: "lfm-1b", params: "1.2B", size: "0.7 GB", ram: "2 GB", speed: "Not yet measured", tier: "Phones", best: "Short replies, classification, quick Q&A", platforms: "iOS · Android · Web · Desktop" },
-  { id: "lfm3-1.7b", params: "1.7B", size: "1.1 GB", ram: "3 GB", speed: "Not yet measured", tier: "Phones", best: "Chat and rewriting on mid-range phones", platforms: "iOS · Android · Web · Desktop" },
-  { id: "granite-3b", params: "3B", size: "2.2 GB", ram: "5 GB", speed: "Not yet measured", tier: "Laptops", best: "General chat, summaries, tool use", platforms: "Web · Desktop · iPad" },
-  { id: "gemma-e2b", params: "2B effective", size: "3.4 GB", ram: "6 GB", speed: "Not yet measured", tier: "Laptops", best: "Quantisation-aware 4-bit build for small devices", platforms: "Desktop · Web" },
+  { id: "lfm-1b", params: "1.2B", size: "0.7 GB", ram: "2 GB", speed: "≈70 tok/s on a flagship phone (reported)", status: "available", tier: "Phones", best: "Short replies, classification, quick Q&A", platforms: "iOS · Android · Web · Desktop" },
+  { id: "lfm3-1.7b", params: "1.7B", size: "1.1 GB", ram: "3 GB", speed: "≈44 tok/s on iPhone 17 Pro (reported)", status: "available", tier: "Phones", best: "Chat and rewriting on mid-range phones", platforms: "iOS · Android · Web · Desktop" },
+  { id: "granite-3b", params: "3B", size: "2.2 GB", ram: "5 GB", speed: "≈43 tok/s on M1 Pro (estimate)", status: "available", tier: "Laptops", best: "General chat, summaries, tool use", platforms: "Web · Desktop · iPad" },
+  { id: "gemma-e2b", params: "2B effective", size: "3.4 GB", ram: "6 GB", speed: "12–20 tok/s on recent Snapdragon (reported)", status: "available", tier: "Phones", best: "Quantisation-aware 4-bit build for small devices", platforms: "Desktop · Web" },
+  { id: "ze-code", params: "3B (planned)", size: "—", ram: "—", speed: "—", status: "in development", tier: "Laptops", best: "Code completion and explanation, trained by Zeroth", platforms: "Desktop · Web (planned)" },
 ] as const;
 
 export const platforms = [

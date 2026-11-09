@@ -106,7 +106,11 @@ export function ModelsExplorer() {
           <div key={m.id} className={`${card} flex flex-col p-6`}>
             <div className="flex items-baseline justify-between">
               <b className="font-mono text-[18px]">{m.id}</b>
-              <span className="text-xs font-semibold text-accent">{m.tier}</span>
+              {m.status === "available" ? (
+                <span className="text-xs font-semibold text-accent">{m.tier}</span>
+              ) : (
+                <span className="rounded-full border border-black/20 px-2.5 py-0.5 text-xs font-semibold text-black/60">In development</span>
+              )}
             </div>
             <p className="mt-3 min-h-[44px] text-[14px] leading-[1.5] text-black/70">{m.best}</p>
             <dl className="mt-5 grid grid-cols-2 gap-y-3 border-t border-black/10 pt-4 text-[13px]">
@@ -121,6 +125,7 @@ export function ModelsExplorer() {
           </div>
         ))}
       </div>
+      <p className="mt-6 text-[13px] text-black/55">Speeds are figures reported by others or estimates from public sources, not Zeroth benchmarks. They vary by device, quantisation and context length.</p>
     </div>
   );
 }
