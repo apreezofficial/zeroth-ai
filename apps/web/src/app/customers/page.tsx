@@ -35,6 +35,24 @@ export default function CustomersPage() {
           </div>
         </div>
       </section>
+      <section className="bg-white py-20">
+        <div className="mx-auto max-w-[1000px] px-6">
+          <h2 className="text-[clamp(28px,3.4vw,40px)] font-bold tracking-[-0.03em]">Built with Zeroth</h2>
+          <a
+            href="https://github.com/apreezofficial/drer"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`${purpleCard} mt-8 flex flex-col gap-3 p-7 hover:-translate-y-0.5 transition-transform`}
+          >
+            <span className="text-[13px] font-semibold tracking-[0.12em] text-black/50">DESKTOP · macOS</span>
+            <span className="text-[22px] font-bold tracking-tight">DRER (Aura OS Go)</span>
+            <span className="text-[15px] leading-[1.55] text-black/70">
+              A desktop assistant whose chat and actions run on-device through <code>@zeroth-ai/sdk-node</code>. Prompts and instructions work offline.
+            </span>
+            <span className="mt-2 text-[14px] font-semibold text-accent">View the source on GitHub →</span>
+          </a>
+        </div>
+      </section>
       <section className="bg-black py-20 text-white">
         <div className="mx-auto max-w-[1000px] px-6 text-center">
           <h2 className="text-[20px] font-bold">Chosen by progressive teams.</h2>
