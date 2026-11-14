@@ -11,7 +11,7 @@ const grotesk = Hanken_Grotesk({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://zeroth.pxxl.dev"),
+  metadataBase: new URL("https://zeroth.apcodesphere.xyz"),
   alternates: { canonical: "./" },
   openGraph: { type: "website", siteName: "Zeroth", url: "./", locale: "en_US" },
   twitter: { card: "summary_large_image" },
