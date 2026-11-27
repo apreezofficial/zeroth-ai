@@ -151,14 +151,14 @@ await ai.unload();
     window.setTimeout(() => URL.revokeObjectURL(objectUrl), 1000);
   }
 
-  return <div className="grid gap-10 lg:grid-cols-[0.88fr_1.12fr]">
-    <div>
+  return <div className="grid min-w-0 grid-cols-1 gap-10 lg:grid-cols-[minmax(0,0.88fr)_minmax(0,1.12fr)]">
+    <div className="min-w-0">
       <p className={label}>01 / FIND A BASE MODEL</p>
       <h2 className="mt-4 text-3xl font-bold tracking-tight">Start with open weights.</h2>
       <p className="mt-3 max-w-lg text-[15px] leading-7 text-black/65">Search Hugging Face’s live GGUF catalogue. Downloads are filtered by file size and estimated RAM, so very large models stay out of the starter path.</p>
-      <form onSubmit={search} className="mt-6 flex gap-2">
+      <form onSubmit={search} className="mt-6 flex min-w-0 gap-2">
         <input value={query} onChange={(e) => setQuery(e.target.value)} aria-label="Search GGUF models" placeholder="Try: Qwen 3B, Gemma, Llama" className="min-w-0 flex-1 border border-black/20 bg-white px-4 py-3 text-sm outline-none focus:border-accent" />
-        <button disabled={busy} className="bg-black px-5 py-3 text-sm font-semibold text-white hover:bg-accent disabled:opacity-50">{busy ? "Loading…" : "Search"}</button>
+        <button disabled={busy} className="shrink-0 bg-black px-4 py-3 text-sm font-semibold text-white hover:bg-accent disabled:opacity-50 sm:px-5">{busy ? "Loading…" : "Search"}</button>
       </form>
       <div className="mt-4 border border-accent/30 bg-white p-4">
         <p className="text-[11px] font-semibold tracking-[0.12em] text-accent">READY-MADE CUSTOMER SUPPORT STARTER</p>
@@ -185,12 +185,12 @@ await ai.unload();
       {!repos.length && !busy && !error && <div className={`${card} mt-5 p-5 text-sm leading-6 text-black/60`}>Search results come from Hugging Face at request time. Model owners control files and licenses; inspect the model card before using weights.</div>}
     </div>
 
-    <div>
+    <div className="min-w-0">
       <p className={label}>02 / SHAPE YOUR MODEL</p>
       <h2 className="mt-4 text-3xl font-bold tracking-tight">Make a local assistant your own.</h2>
       {builtInSupportModel && <div className={`${card} mt-6 p-5`}>
         <p className={label}>TESTED BUILT-IN MODEL</p>
-        <p className="mt-2 font-mono text-sm font-semibold">LFM2.5 1.2B Instruct · Q4_K_M</p>
+        <p className="mt-2 break-words font-mono text-sm font-semibold">LFM2.5 1.2B Instruct · Q4_K_M</p>
         <p className="mt-2 text-xs leading-5 text-black/60">~0.7 GB download · first run fetches and SHA-256 verifies the model through the Node SDK.</p>
         <a href={SUPPORT_MODEL_CARD} target="_blank" rel="noreferrer" className="mt-3 inline-block text-sm font-semibold text-accent underline">Model card ↗</a>
       </div>}
@@ -221,7 +221,7 @@ await ai.unload();
         {!customerSupport && <label className="text-xs font-semibold text-black/60 sm:col-span-2">SYSTEM INSTRUCTIONS<textarea value={system} onChange={(e) => setSystem(e.target.value)} rows={4} className="mt-2 block w-full resize-y border border-black/20 px-3 py-3 text-sm leading-6 text-black outline-none focus:border-accent" /></label>}
         {customerSupport && <label className="text-xs font-semibold text-black/60 sm:col-span-2">DEMO POLICY / YOUR APPROVED SUPPORT FAQ<textarea value={supportKnowledge} onChange={(e) => setSupportKnowledge(e.target.value)} rows={7} className="mt-2 block w-full resize-y border border-black/20 px-3 py-3 text-sm leading-6 text-black outline-none focus:border-accent" /></label>}
       </div>
-      {(repo && file || builtInSupportModel) ? <div className="mt-5 overflow-hidden border border-black bg-[#0d0d10] text-white">
+      {(repo && file || builtInSupportModel) ? <div className="mt-5 min-w-0 overflow-hidden border border-black bg-[#0d0d10] text-white">
         <div className="flex items-center justify-between border-b border-white/10 px-4 py-3"><span className="font-mono text-xs text-white/55">run-model.mjs</span><button onClick={() => void copyCode()} className="text-xs font-semibold text-white/80 hover:text-white">{copied ? "Copied" : "Copy"}</button></div>
         <p className="border-b border-white/10 px-4 py-3 text-xs leading-5 text-white/60">{builtInSupportModel ? "Run the install command in the script comment, save this as run-support.mjs, then run it. The SDK downloads and verifies the model on first use." : "Run the install command in the script comment, download the GGUF into your project’s models/ folder, then run this file. The SDK checks file size and SHA-256 before loading."}{customerSupport ? " Replace the fictional demo policy with approved support content before handling real customers." : ""}</p>
         <pre className="max-h-[310px] overflow-auto p-4 text-[11px] leading-[1.65] text-white/80"><code>{modelCode}</code></pre>
