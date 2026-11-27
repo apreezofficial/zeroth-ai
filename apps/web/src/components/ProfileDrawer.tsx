@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { mountProfileWidget, type ProfileWidgetOptions } from "apreez-profile-widget";
 
 const drawerOptions: ProfileWidgetOptions = {
-  currenturl: "https://zeroth.apcodesphere.dev",
+  currenturl: "https://zeroth.apcodesphere.xyz",
 };
 
 export function ProfileDrawer() {
