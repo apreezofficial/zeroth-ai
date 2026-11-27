@@ -83,7 +83,9 @@ export function Header() {
     <>
       {banner && (
         <div className="relative z-40 bg-accent px-10 py-3 text-center text-[14px] font-medium text-white">
-          ⚡ Zeroth SDK 0.1 is on npm — Node and Desktop ready, Web and mobile in preview. ⚡
+          <Link href="/studio" className="hover:underline hover:underline-offset-4">
+            ⚡ Model Studio is now available — build a custom local AI profile. ⚡
+          </Link>
           <button
             onClick={() => setBanner(false)}
             aria-label="Dismiss"
