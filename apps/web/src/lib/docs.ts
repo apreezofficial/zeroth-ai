@@ -79,6 +79,12 @@ export const docs: DocMeta[] = [
     headings: [{ id: "catalogue", title: "Catalogue" }, { id: "memory", title: "Memory needs" }, { id: "licences", title: "Licences" }],
   },
   {
+    slug: "model-studio", title: "Model Studio", group: "Guides",
+    description: "Search for GGUF models, choose a device-sized file, configure a support profile, and run the exported Zeroth script.",
+    keywords: ["studio", "custom model", "GGUF", "quantization", "customer support", "profile", "download", "Hugging Face"],
+    headings: [{ id: "choose-a-model", title: "Choose a model" }, { id: "size-and-memory", title: "Fit the device" }, { id: "build-a-support-profile", title: "Build a support profile" }, { id: "download-and-run", title: "Download and run" }, { id: "production-checklist", title: "Before production" }],
+  },
+  {
     slug: "errors", title: "Errors", group: "Reference",
     description: "Every error code the SDK throws, what causes it and how to fix it.",
     keywords: ["error", "ZerothError", "code", "ABORTED", "INSUFFICIENT_MEMORY", "CHECKSUM_MISMATCH", "troubleshooting"],

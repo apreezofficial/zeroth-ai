@@ -422,6 +422,44 @@ npm run cli -- chat --system "You are a concise assistant."`, "terminal")}
     </>
   ),
 
+  "model-studio": () => (
+    <>
+      <p>The <Link href="/studio">Model Studio</Link> helps you choose an existing GGUF model and export a local Zeroth runtime profile. It does not train or fine-tune model weights. The selected weights remain the work of their upstream publisher.</p>
+
+      <H2 id="choose-a-model">Choose a model</H2>
+      <ol>
+        <li>Search the live Hugging Face GGUF catalogue, or select the tested customer-support starter.</li>
+        <li>Open a model card and check its architecture, chat template, intended use and license.</li>
+        <li>Select a single-file GGUF quantization. Split GGUF files and multimodal projector files are not supported by the generated single-file profile.</li>
+      </ol>
+      <p>The customer-support starter uses the built-in LFM2.5 1.2B Instruct model. It has been exercised with sample password-reset and refund questions. Its included policy is fictional demo text, not a real company policy.</p>
+
+      <H2 id="size-and-memory">Fit the device</H2>
+      <p>By default, file choices are limited to 4 GB downloads and an 8 GB RAM budget. These are filters, not a guarantee that the model will fit: other apps, context length, runtime overhead and hardware all affect memory use.</p>
+      <p>GGUF file size is not the same as runtime memory. The picker shows a rough estimate. Start with a smaller quantization and a short context on phones or memory-constrained devices, then test on the actual hardware.</p>
+
+      <H2 id="build-a-support-profile">Build a support profile</H2>
+      <p>Select <strong>Load tested support starter</strong>, then replace the fictional demo policy with your approved help-center answers, account-security guidance, refund rules and human escalation route. The exported script includes a system instruction that asks the model to stay within that supplied content, avoid requesting secrets, and escalate unknown cases.</p>
+      <Callout type="warn"><p>System instructions cannot guarantee truthful or policy-compliant answers. Validate important actions in application code and keep a human review path for consequential cases.</p></Callout>
+
+      <H2 id="download-and-run">Download and run</H2>
+      <p>Copy or download the generated <code>.mjs</code> profile. For the built-in support starter, install the Node runtime and run the script:</p>
+      {code(`npm install @zeroth-ai/sdk-node
+node run-support.mjs "How do I reset my password?"`, "terminal")}
+      <p>The first run downloads and verifies the built-in model. For a custom Hugging Face model, download the chosen GGUF into your project’s <code>models/</code> directory. The generated profile checks the expected byte size and SHA-256 before loading when the repository supplies a checksum.</p>
+
+      <H2 id="production-checklist">Before production</H2>
+      <ul>
+        <li>Replace every fictional example policy and contact with approved company content.</li>
+        <li>Review the model card and license. A public GGUF is not automatically approved for your product or supported by every runtime.</li>
+        <li>Test expected questions, unknown questions, prompt injection attempts and escalation behavior on your target devices.</li>
+        <li>Never let generated text alone authorize refunds, account changes, payments or access. Validate permissions and actions in your application.</li>
+        <li>Plan for slow downloads, insufficient memory, model unavailability and human escalation.</li>
+      </ul>
+      <p>See <Link href="/docs/limitations">Limitations and troubleshooting</Link> for model accuracy, tool-calling, runtime and hardware constraints.</p>
+    </>
+  ),
+
   errors: () => (
     <>
       <H2 id="handling-errors">Handling errors</H2>
