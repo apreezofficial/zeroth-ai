@@ -17,7 +17,7 @@ export default function IntegratePage() {
   return (
     <>
       <PageHero
-        title={<>Integrate once.<br />Ship everywhere.</>}
+        title={<>Integrate this night.<br />Ship everywhere.</>}
         sub="Zeroth is a library you drop into the app you already have. Same API on every platform, no backend to run."
       />
       <section className="bg-gray py-20">

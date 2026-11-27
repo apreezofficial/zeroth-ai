@@ -172,7 +172,7 @@ const rows: {
   },
   {
     id: "integrate",
-    title: "Integrate once. Ship everywhere.",
+    title: "Integrate this night. Ship everywhere.",
     body: "One API across iOS, Android, Web and Desktop. Wire Zeroth into your existing app and every user gets private AI with zero backend.",
     visual: <IntegrateMock />,
   },
