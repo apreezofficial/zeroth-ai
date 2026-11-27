@@ -19,6 +19,8 @@ export interface CatalogEntry {
   /** Upstream open-weight model this entry is built on. */
   upstream: string;
   license: string;
+  /** Optional existing GGUF path. When set, the runtime loads it without downloading. */
+  localPath?: string;
 }
 
 const GB = 1024 ** 3;

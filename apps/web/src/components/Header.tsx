@@ -30,6 +30,7 @@ const features: { title: string; body: string; icon: Block[]; href: string }[] =
 
 const links = [
   ["Models", "/models"],
+  ["Studio", "/studio"],
   ["Integrate", "/integrate"],
 ] as const;
 

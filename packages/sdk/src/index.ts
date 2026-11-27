@@ -10,6 +10,7 @@ export type {
   LoadOptions,
   Message,
   ModelId,
+  BuiltInModelId,
   ModelInfo,
   Preference,
   Role,

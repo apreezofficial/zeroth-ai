@@ -52,6 +52,34 @@ Open-weight models, quantised to 4-bit (GGUF). Check each upstream license befor
 
 `vision-8b` is not available yet: the llama.cpp bindings used here have no image input.
 
+### Bring your own GGUF
+
+`createLlamaEngine({ catalog })` accepts a custom catalogue. Add a `localPath` to an entry to load a GGUF you downloaded yourself; Zeroth checks its byte size and, when supplied, SHA-256 before opening it. The [Model Studio](https://zeroth.apcodesphere.xyz/studio) searches Hugging Face and exports a starter Node script for this workflow. The Studio creates a runtime profile, not fine-tuned weights.
+
+```ts
+import { createZeroth } from "@zeroth-ai/sdk";
+import { catalog, createLlamaEngine } from "@zeroth-ai/sdk-node";
+
+const engine = createLlamaEngine({ catalog: [...catalog, {
+  id: "my-local-model",
+  kind: "chat",
+  name: "My local model",
+  params: "Custom GGUF",
+  paramsB: 0,
+  file: "model-Q4_K_M.gguf",
+  url: "https://huggingface.co/owner/repo/resolve/main/model-Q4_K_M.gguf",
+  sha256: "<64-character SHA-256 from the model repository>",
+  sizeBytes: 1234567890,
+  memoryBytes: 3000000000,
+  upstream: "owner/repo",
+  license: "Check the model card",
+  localPath: "./models/model-Q4_K_M.gguf",
+}] });
+const ai = await createZeroth(engine).load("my-local-model");
+```
+
+Local models are not included in npm and remain on the user’s machine. Check the upstream model’s license and runtime compatibility before shipping it.
+
 Models are stored in `~/Library/Caches/zeroth` (macOS), `~/.cache/zeroth` (Linux) or `%LOCALAPPDATA%\zeroth` (Windows). Override with `ZEROTH_HOME`.
 
 ## Develop

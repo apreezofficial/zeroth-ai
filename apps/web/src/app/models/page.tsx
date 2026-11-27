@@ -42,7 +42,7 @@ export default function ModelsPage() {
           <p className="mt-10 max-w-[620px] text-[13px] leading-[1.6] text-black/50">Speeds are figures reported by others or estimates from public sources, not Zeroth benchmarks. They vary by device, quantisation and context length.</p>
         </div>
       </section>
-      <CTABand title="Pick a model, or let Zeroth pick one for you." />
+      <CTABand title="Bring your own GGUF or pick a built-in model." primary={["Open Model Studio", "/studio"]} secondary={["Read the docs", "/docs"]} />
     </>
   );
 }

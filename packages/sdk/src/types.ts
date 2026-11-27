@@ -1,9 +1,12 @@
 /** Models Zeroth ships. Mirrors the catalogue on the website. */
-export type ModelId =
+export type BuiltInModelId =
   | "lfm-1b"
   | "lfm3-1.7b"
   | "granite-3b"
   | "gemma-e2b";
+
+/** Built-in IDs plus IDs supplied through a custom runtime catalogue. */
+export type ModelId = BuiltInModelId | (string & {});
 
 /** What to optimise for when picking a model automatically. */
 export type Preference = "quality" | "speed" | "battery";

@@ -19,7 +19,7 @@ import {
   type LlamaModel,
 } from "node-llama-cpp";
 import { catalog as defaultCatalog, type CatalogEntry } from "./catalog.js";
-import { downloadVerified, isDownloaded } from "./download.js";
+import { downloadVerified, isDownloaded, verifyLocalModel } from "./download.js";
 import { defaultCacheDir } from "./paths.js";
 import { memoryBudget, probeHardware, type Hardware } from "./probe.js";
 import { selectModel } from "./select.js";
@@ -105,9 +105,16 @@ export function createLlamaEngine(options: LlamaEngineOptions = {}): LlamaEngine
     (llamaPromise ??= (options.llama ?? (() => getLlama({ logLevel: LlamaLogLevel.error, progressLogs: false })))());
 
   const modelPath = (e: CatalogEntry) => path.join(cacheDir, "models", e.file);
-  const isCached = (e: CatalogEntry) => isDownloaded(modelPath(e), e.sizeBytes);
+  const isCached = (e: CatalogEntry) =>
+    e.localPath
+      ? fs.stat(e.localPath).then((stat) => stat.isFile() && stat.size === e.sizeBytes).catch(() => false)
+      : isDownloaded(modelPath(e), e.sizeBytes);
 
   const ensureModel: LlamaEngine["ensureModel"] = async (entry, opts = {}) => {
+    if (entry.localPath) {
+      await verifyLocalModel(entry.localPath, entry.sizeBytes, entry.sha256);
+      return entry.localPath;
+    }
     const dest = modelPath(entry);
     if (!(await isDownloaded(dest, entry.sizeBytes))) {
       await downloadVerified({

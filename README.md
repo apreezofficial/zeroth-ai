@@ -28,6 +28,10 @@ zeroth/
 
 Counts are npm's own, updated live by shields.io. They include CI runs, bots and mirrors, and installing `sdk-node` also installs `sdk`, so don't add them together. A package shows "too new" until npm has counted it, usually within a day of publishing.
 
+## Model Studio
+
+Visit [`/studio`](https://zeroth.apcodesphere.xyz/studio) to search Hugging Face for GGUF models, select a single-file quantization, and export a local Zeroth Node profile. The Studio downloads weights directly from their publisher. It configures a model runtime; it does not fine-tune or train model weights. See [`packages/sdk-node/README.md`](packages/sdk-node/README.md#bring-your-own-gguf) to add custom GGUF files to an application catalogue.
+
 ## Quick start
 
 Requires Node 20.11 or newer.

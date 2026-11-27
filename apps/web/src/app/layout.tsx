@@ -15,6 +15,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "./" },
   openGraph: { type: "website", siteName: "Zeroth", url: "./", locale: "en_US" },
   twitter: { card: "summary_large_image" },
+  verification: { google: "1cFaK2RI5pPIpetkkRA7e0S5qFz66x4fdb4ZhvMT5eE" },
   title: "Zeroth — AI that runs fully offline",
   description:
     "Run open-weight AI models inside your app, on the device. Install from npm, download a model once, then chat, get schema-checked JSON and call tools with no server, no API key and no per-token bill.",

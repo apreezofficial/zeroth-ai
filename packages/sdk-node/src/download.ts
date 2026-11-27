@@ -35,6 +35,20 @@ async function sha256File(file: string): Promise<string> {
   return hash.digest("hex");
 }
 
+/** Check a user-provided local GGUF against the metadata from its model repository. */
+export async function verifyLocalModel(file: string, sizeBytes: number, sha256?: string): Promise<void> {
+  const stat = await fs.stat(file).catch(() => null);
+  if (!stat?.isFile() || stat.size !== sizeBytes) {
+    throw new ZerothError("DOWNLOAD_FAILED", `Local model ${file} is missing or has an unexpected size.`);
+  }
+  if (sha256) {
+    const actual = await sha256File(file);
+    if (actual !== sha256.toLowerCase()) {
+      throw new ZerothError("CHECKSUM_MISMATCH", `Local model ${file} failed its SHA-256 check.`);
+    }
+  }
+}
+
 const sleep = (ms: number) => new Promise<void>((r) => setTimeout(r, ms));
 
 function aborted(signal?: AbortSignal): never {

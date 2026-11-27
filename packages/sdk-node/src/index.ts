@@ -16,6 +16,7 @@ export type {
   LoadOptions,
   Message,
   ModelId,
+  BuiltInModelId,
   ModelInfo,
   Preference,
   ToolDefinition,
@@ -31,4 +32,4 @@ export { probeHardware, memoryBudget } from "./probe.js";
 export type { Hardware } from "./probe.js";
 export { selectModel } from "./select.js";
 export { defaultCacheDir } from "./paths.js";
-export { downloadVerified, isDownloaded } from "./download.js";
+export { downloadVerified, isDownloaded, verifyLocalModel } from "./download.js";
