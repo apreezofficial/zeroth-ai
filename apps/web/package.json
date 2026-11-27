@@ -10,7 +10,7 @@
     "typecheck": "next typegen && tsc --noEmit"
   },
   "dependencies": {
-    "apreez-profile-widget": "github:apreezofficial/profile-widget#4ee759ceeb9c6c3da2808132a86702d99a953d43",
+    "apreez-profile-widget": "github:apreezofficial/profile-widget#eef95d49b205b3155e989f452ffa17ff81dc8443",
     "next": "16.4.5",
     "react": "19.3.0",
     "react-dom": "19.3.0"

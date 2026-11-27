@@ -5,6 +5,7 @@ import { mountProfileWidget, type ProfileWidgetOptions } from "apreez-profile-wi
 
 const drawerOptions: ProfileWidgetOptions = {
   currenturl: "https://zeroth.apcodesphere.xyz",
+  accent: "var(--accent)",
 };
 
 export function ProfileDrawer() {
