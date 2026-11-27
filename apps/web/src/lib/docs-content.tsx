@@ -451,6 +451,56 @@ try {
     </>
   ),
 
+  limitations: () => (
+    <>
+      <p>On-device inference removes an inference server from the request path, but it does not make a model correct, fast on every device, or suitable for every workload. Test the exact model, quantization, prompts and hardware you plan to ship.</p>
+      <H2 id="model-quality">Model quality and accuracy</H2>
+      <ul>
+        <li>Small models have limited reasoning, language coverage and instruction-following. They can misunderstand requests, omit details or confidently invent answers.</li>
+        <li>Quantization reduces file size and memory use, and may reduce output quality. Quality varies by model, quantization, prompt and task.</li>
+        <li>A system prompt is guidance, not a security boundary. For customer support, provide approved help content, require escalation when it is missing, and verify outputs before taking consequential actions.</li>
+        <li>Do not rely on model text alone for financial, medical, legal, identity or account decisions. Enforce permissions and business rules in application code.</li>
+        <li>The customer-support starter is a prompt-configured profile using an existing model, not a fine-tuned Zeroth model. Its example policy is fictional and must be replaced before use.</li>
+      </ul>
+
+      <H2 id="tool-calling">Tool calling</H2>
+      <ul>
+        <li>Tool selection and argument quality depend on the model. Small models may answer directly, call the wrong tool, or provide invalid arguments even when instructed to call one.</li>
+        <li>Use clear tool names, descriptions and schemas. Validate arguments and authorization in your handler; never treat a model-generated tool call as permission.</li>
+        <li>Exercise every tool with the exact model and prompts you will ship. Keep a safe fallback when a call is missing or invalid.</li>
+        <li><code>json()</code> and tools cannot be combined by the current llama.cpp path. JSON-constrained output takes precedence.</li>
+      </ul>
+
+      <H2 id="embeddings">Embeddings and retrieval</H2>
+      <p>The current built-in catalogue has no embedding model. <code>embed()</code> is unavailable in the Node runtime until an embedding entry is supplied. Retrieval-augmented generation therefore needs an embedding model and index provided by your application or a future catalogue release.</p>
+
+      <H2 id="hardware">Memory, speed and downloads</H2>
+      <ul>
+        <li>Model weights are large downloads. Disk space, network speed and first-load time matter; downloads resume, but the initial download still has to finish.</li>
+        <li>Runtime memory exceeds the GGUF file size because context/KV cache and engine overhead also use memory. Longer context windows increase memory use.</li>
+        <li>Generation speed depends on the device, backend, quantization, context length and thermal limits. Benchmark representative devices instead of assuming one speed.</li>
+        <li>Loading can fail when memory is fragmented or shared with other apps, even if an estimate says the model should fit. Offer a smaller-model fallback.</li>
+        <li>Model compatibility is architecture- and runtime-specific. A GGUF hosted on Hugging Face is not automatically supported by every Zeroth runtime.</li>
+      </ul>
+
+      <H2 id="runtime-support">Runtime support</H2>
+      <ul>
+        <li>Node/Desktop is the most complete runtime. Browser/WebAssembly and React Native packages are previews; test on the actual browsers and physical devices you target.</li>
+        <li>Browser memory limits restrict model size. Mobile devices vary widely in available RAM, thermal behavior and native backend support.</li>
+        <li>Vision input is not supported by the current Node bindings/catalogue. Do not expect image or video understanding from the chat API.</li>
+        <li>The SDK does not keep conversation state between calls. Pass the messages you need each time, and manage history/token limits in your app.</li>
+      </ul>
+
+      <H2 id="privacy-and-policy">Privacy, licensing and production policy</H2>
+      <ul>
+        <li>Inference runs locally, but model downloads contact the model host. Your app may make other network requests independently of Zeroth.</li>
+        <li>Open weights have separate licenses and acceptable-use terms. Review the exact model card and license before redistribution or commercial use.</li>
+        <li>Local inference does not prevent prompt injection, unsafe outputs or a user from inspecting files and prompts on their own device.</li>
+        <li>For customer-facing use, replace sample content with approved policy, avoid including secrets in prompts, log safely, and provide a human escalation path.</li>
+      </ul>
+    </>
+  ),
+
   api: () => (
     <>
       <H2 id="zeroth">zeroth</H2>

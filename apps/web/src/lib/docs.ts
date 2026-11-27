@@ -85,6 +85,12 @@ export const docs: DocMeta[] = [
     headings: [{ id: "handling-errors", title: "Handling errors" }, { id: "codes", title: "Error codes" }],
   },
   {
+    slug: "limitations", title: "Limitations and troubleshooting", group: "Reference",
+    description: "Known model, hardware, runtime and privacy limits—and practical ways to work around them.",
+    keywords: ["limitations", "flaws", "troubleshooting", "hallucination", "tools", "embeddings", "memory", "latency", "context", "preview"],
+    headings: [{ id: "model-quality", title: "Model quality and accuracy" }, { id: "tool-calling", title: "Tool calling" }, { id: "embeddings", title: "Embeddings and retrieval" }, { id: "hardware", title: "Memory, speed and downloads" }, { id: "runtime-support", title: "Runtime support" }, { id: "privacy-and-policy", title: "Privacy and policy" }],
+  },
+  {
     slug: "api", title: "API reference", group: "Reference",
     description: "Every method and option in @zeroth-ai/sdk.",
     keywords: ["api", "reference", "methods", "options", "types", "LoadOptions", "GenerateOptions"],
