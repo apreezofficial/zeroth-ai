@@ -1,10 +1,10 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { Button, Reveal } from "@/components/ui";
 import { CTABand } from "@/components/PageParts";
 import { purpleCard } from "@/components/styles";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = { title: "Customers — Zeroth", description: "See what gets built with Zeroth, including DRER, a macOS assistant whose chat and actions run fully on-device." };
+export const metadata = pageMetadata({ title: "Customer Stories", description: "Examples of teams building private, offline AI features with the Zeroth on-device runtime.", path: "/customers", index: false });
 
 const quotes = [
   ["“We added Zeroth to our notes app in an afternoon. Summaries now run on-device, on a plane, with zero backend cost.”", "Maya Okafor", "Head of Engineering, Hushline"],

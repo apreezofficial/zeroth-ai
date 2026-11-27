@@ -7,6 +7,7 @@ import { Button, Reveal } from "@/components/ui";
 import { CodeBlock } from "@/components/Interactive";
 import { card, label } from "@/components/styles";
 import { features } from "@/lib/content";
+import { pageMetadata } from "@/lib/seo";
 
 export function generateStaticParams() {
   return features.map((f) => ({ slug: f.slug }));
@@ -15,7 +16,7 @@ export function generateStaticParams() {
 export async function generateMetadata(props: PageProps<"/product/[slug]">): Promise<Metadata> {
   const { slug } = await props.params;
   const f = features.find((x) => x.slug === slug);
-  return f ? { title: `${f.tag[0]}${f.tag.slice(1).toLowerCase()} — Zeroth`, description: f.lead } : {};
+  return f ? pageMetadata({ title: `${f.tag[0]}${f.tag.slice(1).toLowerCase()} On-Device AI`, description: f.lead, path: `/product/${slug}` }) : {};
 }
 
 export default async function FeaturePage(props: PageProps<"/product/[slug]">) {

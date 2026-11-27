@@ -1,13 +1,10 @@
-import type { Metadata } from "next";
 import { CTABand, PageHero } from "@/components/PageParts";
 import { ModelsExplorer } from "@/components/Interactive";
 import { Reveal } from "@/components/ui";
 import { card } from "@/components/styles";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Models — Zeroth",
-  description: "Four 2026 open-weight models, 0.7 to 3.4 GB, quantised to 4-bit and verified by SHA-256. Compare size, memory needs and reported speeds before you ship one.",
-};
+export const metadata = pageMetadata({ title: "Open-Weight AI Models", description: "Compare Zeroth’s built-in GGUF language models by size, memory needs and runtime support, or configure another compatible model in Model Studio.", path: "/models" });
 
 const how = [
   ["Probe", "On first launch Zeroth measures memory, GPU and NPU support in milliseconds."],

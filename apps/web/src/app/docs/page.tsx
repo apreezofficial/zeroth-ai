@@ -1,12 +1,9 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { CodeBlock } from "@/components/Interactive";
 import { docs, groups } from "@/lib/docs";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Docs — Zeroth",
-  description: "Install the SDK, load a model, stream replies and get JSON back. Guides for tools, offline use, the CLI and every error code.",
-};
+export const metadata = pageMetadata({ title: "Developer Documentation", description: "Install the Zeroth AI SDK, load local language models, stream responses, generate structured JSON, call tools, and build offline AI features.", path: "/docs" });
 
 export default function DocsHome() {
   return (

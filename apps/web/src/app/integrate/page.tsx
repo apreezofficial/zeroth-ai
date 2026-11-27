@@ -1,14 +1,11 @@
-import type { Metadata } from "next";
 import { CTABand, PageHero } from "@/components/PageParts";
 import { PlatformTabs } from "@/components/Interactive";
 import { Reveal } from "@/components/ui";
 import { card } from "@/components/styles";
 import { works } from "@/lib/content";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Integrate — Zeroth",
-  description: "Install @zeroth-ai/sdk-node, call zeroth.load() and stream your first on-device reply in a few lines. Same chat, json and tools calls throughout.",
-};
+export const metadata = pageMetadata({ title: "Integrate On-Device AI", description: "Add the Zeroth SDK to a Node, Electron, web or mobile app. Load open-weight models locally and use one API for chat, structured output and tools.", path: "/integrate" });
 
 const steps = [
   ["Add the package", "One npm package per runtime: Node and Desktop today, Web and React Native in preview."],

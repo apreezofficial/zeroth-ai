@@ -1,11 +1,8 @@
-import type { Metadata } from "next";
 import { ModelStudio } from "@/components/ModelStudio";
 import { PageHero } from "@/components/PageParts";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Model Studio — Zeroth",
-  description: "Find open GGUF models, download their weights, and generate a custom local Zeroth runtime profile.",
-};
+export const metadata = pageMetadata({ title: "Model Studio: Build a Local AI Profile", description: "Search Hugging Face GGUF models, choose model weights and instructions, then export a custom Zeroth Node profile to run AI locally.", path: "/studio" });
 
 export default function StudioPage() {
   return <>

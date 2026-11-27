@@ -4,6 +4,7 @@ import { PrevNext } from "@/components/docs/ui";
 import { TocInline, TocRail } from "@/components/docs/Toc";
 import { bodies } from "@/lib/docs-content";
 import { bySlug, docs } from "@/lib/docs";
+import { pageMetadata } from "@/lib/seo";
 
 export function generateStaticParams() {
   return docs.map((d) => ({ slug: d.slug }));
@@ -12,7 +13,7 @@ export function generateStaticParams() {
 export async function generateMetadata(props: PageProps<"/docs/[slug]">): Promise<Metadata> {
   const { slug } = await props.params;
   const d = bySlug(slug);
-  return d ? { title: `${d.title} — Zeroth docs`, description: d.description } : {};
+  return d ? pageMetadata({ title: `${d.title} Guide`, description: d.description, path: `/docs/${slug}` }) : {};
 }
 
 export default async function DocPage(props: PageProps<"/docs/[slug]">) {

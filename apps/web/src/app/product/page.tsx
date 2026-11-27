@@ -1,15 +1,12 @@
-import type { Metadata } from "next";
 import { Diagram } from "@/components/Diagram";
 import { CTABand, FeatureRow, PageHero, StatCards } from "@/components/PageParts";
 import { Testimonial } from "@/components/Closing";
 import { Button } from "@/components/ui";
 import { CodeBlock } from "@/components/Interactive";
 import { features, works } from "@/lib/content";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Product — Zeroth",
-  description: "One SDK that loads an open-weight model on the user’s device, streams replies, returns schema-checked JSON and calls your tools. No server, no API key, no per-token bill.",
-};
+export const metadata = pageMetadata({ title: "On-Device AI SDK", description: "Run open-weight language models locally inside your app. The Zeroth SDK streams responses, returns schema-checked JSON and calls tools without an inference server.", path: "/product" });
 
 export default function ProductPage() {
   return (

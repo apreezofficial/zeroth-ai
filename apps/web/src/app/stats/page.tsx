@@ -1,15 +1,12 @@
-import type { Metadata } from "next";
 import { Suspense } from "react";
 import { CTABand, PageHero } from "@/components/PageParts";
 import { StatsBars } from "@/components/StatsBars";
 import { Reveal } from "@/components/ui";
 import { card } from "@/components/styles";
 import { getNpmStats } from "@/lib/npm-stats";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Stats — Zeroth",
-  description: "Live npm download counts for every Zeroth package: last day, week and month, lifetime totals and a 30-day chart.",
-};
+export const metadata = pageMetadata({ title: "Zeroth npm Download Stats", description: "View live npm downloads for the Zeroth SDK packages, including daily, weekly, monthly and lifetime totals.", path: "/stats" });
 
 const n = (v: number) => v.toLocaleString("en-US");
 

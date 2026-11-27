@@ -1,9 +1,9 @@
-import type { Metadata } from "next";
 import { CTABand, PageHero } from "@/components/PageParts";
 import { Reveal } from "@/components/ui";
 import { card } from "@/components/styles";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = { title: "About — Zeroth", description: "We build the runtime that lets apps run AI on the device, so prompts and user data never have to reach a server." };
+export const metadata = pageMetadata({ title: "About", description: "Learn why Zeroth builds local AI runtimes that keep prompts and user data on the device and make apps work offline.", path: "/about" });
 
 const values = [
   ["Private by design", "If data never leaves the device, it can’t be breached, sold or subpoenaed from us."],
