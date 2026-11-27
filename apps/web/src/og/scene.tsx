@@ -2,7 +2,7 @@ import { PALETTE, type Block } from "@/components/Blocks";
 
 /** Shared Open Graph frame: 1200x630, cube art on the right, copy on the left. */
 export const OG_SIZE = { width: 1200, height: 630 } as const;
-const BG = "#F7F6FF";
+const BG = "linear-gradient(120deg, #f4f0ff 0%, #eaf8ff 58%, #eafff4 100%)";
 const INK = "#0B0B12";
 const ACCENT = "#7b61ff";
 
@@ -71,6 +71,21 @@ export function Frame({
         <div style={{ width: 22, height: 22, background: accent, borderRadius: 4 }} />
         <div style={{ fontSize: 30, fontWeight: 700, letterSpacing: -0.5 }}>Zeroth</div>
       </div>
+
+      {/* Cool-toned glow behind the cube artwork keeps every share card bright and distinct. */}
+      <div
+        style={{
+          position: "absolute",
+          right: 35,
+          top: 78,
+          width: 490,
+          height: 490,
+          borderRadius: 245,
+          background: "linear-gradient(135deg, #e2d9ff 0%, #c8f1ff 54%, #c9ffe4 100%)",
+          opacity: 0.78,
+          display: "flex",
+        }}
+      />
       <div style={{ position: "absolute", left: 72, bottom: 54, fontSize: 22, color: "rgba(11,11,18,0.55)", display: "flex" }}>
         Offline AI for web, mobile and desktop
       </div>
