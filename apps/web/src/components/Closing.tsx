@@ -10,7 +10,7 @@ export function Testimonial() {
           “At DRER, getting prompts and instructions to work offline was a hassle until Zeroth
           came in. Chat and actions now run on-device, with nothing sent to a server.”
         </p>
-        <div className="mt-10 font-semibold">Head of Engineering</div>
+        <div className="mt-10 font-semibold">Precious Adedokun · Head of Engineering</div>
         <div className="text-black/55">Aura OS</div>
       </Reveal>
     </section>

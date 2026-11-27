@@ -7,7 +7,7 @@ import { pageMetadata } from "@/lib/seo";
 export const metadata = pageMetadata({ title: "Customer Stories", description: "Examples of teams building private, offline AI features with the Zeroth on-device runtime.", path: "/customers", index: false });
 
 const quotes = [
-  ["“We added Zeroth to our notes app in an afternoon. Summaries now run on-device, on a plane, with zero backend cost.”", "Maya Okafor", "Head of Engineering, Hushline"],
+  ["“We added Zeroth to our notes app in an afternoon. Summaries now run on-device, on a plane, with zero backend cost.”", "Precious Adedokun", "Head of Engineering, Aura OS"],
   ["“Our field engineers work with no signal. Zeroth is the first AI feature that works for them.”", "Daniel Reyes", "CTO, Fieldnote"],
   ["“Legal wouldn’t let client data leave the laptop. With Zeroth it never does.”", "Priya Nair", "Product Lead, Ledgerly"],
 ];
